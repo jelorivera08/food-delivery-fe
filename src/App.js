@@ -38,6 +38,12 @@ function App() {
         username: '',
         password: '',
       });
+
+      setOpenSnackbar({
+        message: `Welcome ${credentials.username}!!`,
+        open: true,
+        status: '',
+      });
     } catch (err) {
       setCredentials({
         username: '',
@@ -73,6 +79,12 @@ function App() {
       setCredentials({
         username: '',
         password: '',
+      });
+
+      setOpenSnackbar({
+        message: `Welcome ${credentials.username}!!`,
+        open: true,
+        status: '',
       });
     } catch (err) {
       setOpenSnackbar({

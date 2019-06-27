@@ -35,25 +35,39 @@ export default function SnackBar({
           'aria-describedby': 'message-id',
         }}
         message={<span id="message-id">{message}</span>}
-        action={[
-          <Button
-            key="undo"
-            color="secondary"
-            size="small"
-            onClick={status === 'login' ? handleLogIn : handleSignUp}
-          >
-            {status === 'login' ? 'Log in' : 'Sign up'}
-          </Button>,
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            className={classes.close}
-            onClick={handleClose}
-          >
-            <CloseIcon />
-          </IconButton>,
-        ]}
+        action={
+          status === ''
+            ? [
+                <IconButton
+                  key="close"
+                  aria-label="Close"
+                  color="inherit"
+                  className={classes.close}
+                  onClick={handleClose}
+                >
+                  <CloseIcon />
+                </IconButton>,
+              ]
+            : [
+                <Button
+                  key="undo"
+                  color="secondary"
+                  size="small"
+                  onClick={status === 'login' ? handleLogIn : handleSignUp}
+                >
+                  {status === 'login' ? 'Log in' : 'Sign up'}
+                </Button>,
+                <IconButton
+                  key="close"
+                  aria-label="Close"
+                  color="inherit"
+                  className={classes.close}
+                  onClick={handleClose}
+                >
+                  <CloseIcon />
+                </IconButton>,
+              ]
+        }
       />
     </div>
   );
