@@ -30,7 +30,7 @@ export default function RightContainer({ menu, handleAddClick }) {
           <CardContent
             style={{
               height: '380px',
-              overflow: 'scroll',
+              overflow: 'auto',
             }}
           >
             <Typography>{`Here is the menu for today. 🍔`}</Typography>

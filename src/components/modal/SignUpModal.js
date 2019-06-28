@@ -48,7 +48,7 @@ export default function SignUpModal({
       >
         <div style={modalStyle} className={classes.paper}>
           <Typography variant="h6" id="modal-title">
-            Sign up
+            Signing up is easy and free. 😋
           </Typography>
           <div>
             <TextField

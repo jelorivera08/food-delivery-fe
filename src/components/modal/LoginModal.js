@@ -48,7 +48,7 @@ export default function LoginModal({
       >
         <div style={modalStyle} className={classes.paper}>
           <Typography variant="h6" id="modal-title">
-            Log in
+            Hungry? Log in. 😄
           </Typography>
           <div>
             <TextField
@@ -98,7 +98,7 @@ export default function LoginModal({
               variant="outlined"
               color="primary"
             >
-              Confirm
+              Sign in
             </Button>
           </div>
         </div>

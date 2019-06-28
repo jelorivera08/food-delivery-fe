@@ -114,7 +114,7 @@ function App() {
       await axios.post(`${apiDomain}/api/v1/user`, {
         ...credentials,
       });
-
+      setUsername(credentials.username);
       setIsLoggedIn(true);
       setIsSignUp(false);
       setCredentials({

@@ -40,7 +40,8 @@ export default function LeftContainer({ username, orders, handleDeleteClick }) {
           <CardContent
             style={{
               height: '380px',
-              overflow: 'scroll',
+              overflow: 'auto',
+              scroll: 'h',
             }}
           >
             <Typography>{`You have ordered the following.`}</Typography>
