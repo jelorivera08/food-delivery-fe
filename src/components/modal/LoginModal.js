@@ -75,6 +75,11 @@ export default function LoginModal({
               onChange={handlePasswordChange('password')}
               margin="normal"
               variant="outlined"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleConfirmLogin();
+                }
+              }}
             />
           </div>
           <div

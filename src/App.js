@@ -1,23 +1,45 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import LoginModal from './components/modal/LoginModal';
 import SignUpModal from './components/modal/SignUpModal';
 import './App.css';
 import axios from 'axios';
 import SnackBar from './components/snackbar/snackbar';
+import LeftContainer from './components/LeftContainer/LeftContainer';
+import RightContainer from './components/RightContainer/RightContainer';
+
+const apiDomain = 'http://grabjunjun.herokuapp.com';
 
 function App() {
+  const [username, setUsername] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState({
     message: '',
     open: false,
   });
-  const [credentials, setCredentials] = React.useState({
+  const [credentials, setCredentials] = useState({
     username: '',
     password: '',
   });
+  const [orders, setOrders] = useState([]);
+  const [menu, setMenu] = useState([]);
+
+  const getOrders = async (username) => {
+    try {
+      let orders = await axios.get(`${apiDomain}/api/v1/order`);
+
+      setOrders(
+        orders.data.orders.filter((order) => order.orderFromUser === username)
+      );
+    } catch (err) {
+      setOpenSnackbar({
+        message: 'Unable to get orders. :(',
+        open: true,
+        status: '',
+      });
+    }
+  };
 
   const handleUsernameChange = (username) => (event) => {
     setCredentials({ ...credentials, [username]: event.target.value });
@@ -27,13 +49,29 @@ function App() {
     setCredentials({ ...credentials, [password]: event.target.value });
   };
 
+  const getMenu = async () => {
+    try {
+      let res = await axios.get(`${apiDomain}/api/v1/menu`);
+
+      setMenu(res.data.menu);
+    } catch (err) {
+      setOpenSnackbar({
+        message: 'Unable to get menu. :(',
+        open: true,
+        status: '',
+      });
+    }
+  };
+
   const handleConfirmLogin = async () => {
     try {
-      await axios.post('http://localhost:3000/api/v1/user/login', {
+      await axios.post(`${apiDomain}/api/v1/user/login`, {
         ...credentials,
       });
 
       setIsLoggedIn(true);
+
+      setUsername(credentials.username);
       setCredentials({
         username: '',
         password: '',
@@ -44,6 +82,9 @@ function App() {
         open: true,
         status: '',
       });
+
+      getOrders(credentials.username);
+      getMenu();
     } catch (err) {
       setCredentials({
         username: '',
@@ -70,7 +111,7 @@ function App() {
 
   const handleConfirmSignUp = async () => {
     try {
-      await axios.post('http://localhost:3000/api/v1/user', {
+      await axios.post(`${apiDomain}/api/v1/user`, {
         ...credentials,
       });
 
@@ -95,16 +136,71 @@ function App() {
     }
   };
 
+  const handleDeleteClick = (id) => async () => {
+    try {
+      await axios.delete(`${apiDomain}/api/v1/order`, { data: { id } });
+
+      getOrders(username);
+      setOpenSnackbar({
+        message: 'order deleted!',
+        open: true,
+        status: '',
+      });
+    } catch (err) {
+      setOpenSnackbar({
+        message: 'unable to delete at this moment.',
+        open: true,
+        status: '',
+      });
+    }
+  };
+
+  const handleAddClick = (menuItemName, menuItemPrice) => async () => {
+    try {
+      await axios.post(`${apiDomain}/api/v1/order`, {
+        username: username,
+        name: menuItemName,
+        price: menuItemPrice,
+        quantity: 1,
+      });
+
+      getOrders(username);
+
+      setOpenSnackbar({
+        message: 'order placed!',
+        open: true,
+        status: '',
+      });
+    } catch (err) {
+      setOpenSnackbar({
+        message: 'unable to place order at this moment.',
+        open: true,
+        status: '',
+      });
+    }
+  };
+
   return (
     <div className="App">
       <Paper className="order-container">
-        <Typography variant="h5" component="h3">
-          This is a sheet of paper.
-        </Typography>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your
-          application.
-        </Typography>
+        <div
+          style={{
+            display: 'flex',
+            height: '100%',
+          }}
+        >
+          {isLoggedIn && (
+            <React.Fragment>
+              <LeftContainer
+                handleDeleteClick={handleDeleteClick}
+                orders={orders}
+                username={username}
+              />
+              <RightContainer handleAddClick={handleAddClick} menu={menu} />
+            </React.Fragment>
+          )}
+        </div>
+
         <LoginModal
           credentials={credentials}
           handleSignUp={handleSignUp}
@@ -113,7 +209,6 @@ function App() {
           handlePasswordChange={handlePasswordChange}
           isOpen={!isLoggedIn}
         />
-
         <SignUpModal
           credentials={credentials}
           handleLogIn={handleLogIn}
@@ -123,7 +218,6 @@ function App() {
           handleConfirmSignUp={handleConfirmSignUp}
           isOpen={isSignUp}
         />
-
         <SnackBar
           open={openSnackbar.open}
           message={openSnackbar.message}

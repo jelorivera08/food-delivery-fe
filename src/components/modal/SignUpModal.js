@@ -75,6 +75,11 @@ export default function SignUpModal({
               onChange={handlePasswordChange('password')}
               margin="normal"
               variant="outlined"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleConfirmSignUp();
+                }
+              }}
             />
           </div>
           <div
