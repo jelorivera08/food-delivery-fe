@@ -127,6 +127,8 @@ function App() {
         open: true,
         status: '',
       });
+
+      getMenu();
     } catch (err) {
       setOpenSnackbar({
         message: 'I already know you! log in.',
