@@ -8,7 +8,7 @@ import SnackBar from './components/snackbar/snackbar';
 import LeftContainer from './components/LeftContainer/LeftContainer';
 import RightContainer from './components/RightContainer/RightContainer';
 
-const apiDomain = 'http://grabjunjun.herokuapp.com';
+const apiDomain = 'https://grabjunjun.herokuapp.com';
 
 function App() {
   const [username, setUsername] = useState('');
