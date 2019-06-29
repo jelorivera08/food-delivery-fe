@@ -5,9 +5,10 @@ import api from '../../api/api';
 
 function* login(action) {
   let res = yield api.login(action.payload);
-  if (res === globalConstants.ERROR) {
+  console.log(res);
+  if (res.data === globalConstants.ERROR) {
   } else {
-    yield put(loginActions.loginSuccess());
+    yield put(loginActions.loginSuccess(res.data));
   }
 }
 
