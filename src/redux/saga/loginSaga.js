@@ -1,12 +1,13 @@
 import { put, takeEvery, all } from 'redux-saga/effects';
 import * as globalConstants from '../../App/constants/globalConstants';
+import * as loginActions from '../../App/actions/loginActions';
 import api from '../../api/api';
 
 function* login(action) {
   let res = yield api.login(action.payload);
   if (res === globalConstants.ERROR) {
   } else {
-    console.log(res);
+    yield put(loginActions.loginSuccess());
   }
 }
 

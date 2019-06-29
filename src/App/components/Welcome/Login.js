@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 
@@ -8,6 +9,12 @@ const Login = ({
   credentials,
   handleLoginClick,
 }) => {
+  const handleKeyDown = (e) => {
+    if (e.keyCode == 13) {
+      handleLoginClick(credentials)();
+    }
+  };
+
   return (
     <div className="welcome-right">
       <div className="welcome-right-header">
@@ -21,6 +28,7 @@ const Login = ({
             onChange={handleUsernameChange}
             type="text"
             className="welcome-right-input"
+            onKeyDown={handleKeyDown}
           />
           <input
             value={credentials.password}
@@ -28,6 +36,7 @@ const Login = ({
             placeholder="Password"
             type="password"
             className="welcome-right-input"
+            onKeyDown={handleKeyDown}
           />
         </div>
 

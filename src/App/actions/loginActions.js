@@ -6,3 +6,10 @@ export function login(payload) {
     payload,
   };
 }
+
+export function loginSuccess(payload) {
+  return {
+    type: loginConstants.LOGIN_SUCCESS,
+    payload,
+  };
+}
