@@ -1,13 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Welcome from './components/Welcome/Welcome';
 
-const App = ({ login }) => {
-  if (!login.isLoggedIn) {
-    return <Welcome />;
-  }
-
-  return <div>henlo member</div>;
+const Login = ({ login }) => {
+  return <div>henlo u r logged in</div>;
 };
 
 const mapStateToProps = (state) => ({
@@ -19,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Login);

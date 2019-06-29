@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Welcome from './components/Welcome/Welcome';
+import WelcomeLeft from './WelcomeLeft';
+import './Welcome.css';
 
-const App = ({ login }) => {
-  if (!login.isLoggedIn) {
-    return <Welcome />;
-  }
-
-  return <div>henlo member</div>;
+const Welcome = ({ login }) => {
+  return (
+    <div className="welcome">
+      <WelcomeLeft />
+      <div className="welcome-right" />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -19,4 +21,4 @@ const mapDispatchToProps = (dispatch) => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Welcome);

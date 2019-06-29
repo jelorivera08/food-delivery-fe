@@ -1,4 +1,4 @@
-const loginReducer = (state = {}, action) => {
+const loginReducer = (state = { isLoggedIn: false }, action) => {
   return state;
 };
 
