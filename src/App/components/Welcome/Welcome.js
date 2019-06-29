@@ -1,22 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import WelcomeLeft from './WelcomeLeft';
+import WelcomeRight from './WelcomeRight';
 import './Welcome.css';
+import * as loginActions from '../../actions/loginActions';
 
 const Welcome = ({ login }) => {
   return (
     <div className="welcome">
-      <WelcomeLeft />
-      <div className="welcome-right" />
+      <div className="welcome-left" />
+
+      <WelcomeRight login={login} />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  login: state.login,
-});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  login: (credentials) => () => dispatch(loginActions.login(credentials)),
+});
 
 export default connect(
   mapStateToProps,
