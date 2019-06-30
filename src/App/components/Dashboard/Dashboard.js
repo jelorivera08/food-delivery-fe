@@ -14,12 +14,15 @@ const Dashboard = ({
   logout,
   closeSnackbar,
   username,
+  menu,
   debt,
   getOrders,
+  getMenu,
   orders,
 }) => {
   useEffect(() => {
     getOrders(username);
+    getMenu();
   }, []);
 
   return (
@@ -32,7 +35,7 @@ const Dashboard = ({
           getOrders={getOrders}
           debt={debt}
         />
-        <Menu />
+        <Menu menu={menu} />
       </div>
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
     </div>
@@ -44,6 +47,7 @@ const mapStateToProps = (state) => ({
   username: 'jelo',
   debt: state.dashboard.debt,
   orders: state.dashboard.orders,
+  menu: state.dashboard.menu,
   //TODO: UNCOMMENT THIS
   // username: state.dashboard.username,
 });
@@ -52,6 +56,7 @@ const mapDispatchToProps = (dispatch) => ({
   closeSnackbar: () => dispatch(loginActions.closeSnackbar()),
   logout: () => dispatch(loginActions.logout()),
   getOrders: (username) => dispatch(dashboardActions.getOrders(username)),
+  getMenu: () => dispatch(dashboardActions.getMenu()),
 });
 
 export default connect(

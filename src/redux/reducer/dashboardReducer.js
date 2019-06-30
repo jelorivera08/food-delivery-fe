@@ -5,6 +5,7 @@ const dashboardReducer = (
   state = {
     orders: [],
     username: '',
+    menu: [],
     debt: 0,
     snackbar: {
       open: false,
@@ -14,6 +15,29 @@ const dashboardReducer = (
   action
 ) => {
   switch (action.type) {
+    case dashboardConstants.GET_MENU_FAIL:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Unable to get menu.',
+        },
+      };
+    case dashboardConstants.GET_MENU_SUCCESS:
+      return {
+        ...state,
+        menu: action.payload,
+      };
+    case dashboardConstants.GET_ORDER_FAIL:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Unable to get orders.',
+        },
+      };
     case loginConstants.LOGIN_SUCCESS:
       return {
         ...state,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserProfile = () => {
+const UserProfile = ({ menu }) => {
   return (
     <div className="menu-container">
       <div className="menu">
@@ -9,15 +9,15 @@ const UserProfile = () => {
         </div>
 
         <div className="menu-item-container">
-          <div className="menu-item">
-            <div className="menu-item-text">Adobo for 50 PHP</div>
-          </div>
-          <div className="menu-item">
-            <div className="menu-item-text">Menudo for 15 PHP</div>
-          </div>
-          <div className="menu-item">
-            <div className="menu-item-text">Togue for 20 PHP</div>
-          </div>
+          {menu.map((menuItem) => {
+            return (
+              <div key={menuItem._id} className="menu-item">
+                <div className="menu-item-text">{`${menuItem.name} for ${
+                  menuItem.price
+                } PHP`}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

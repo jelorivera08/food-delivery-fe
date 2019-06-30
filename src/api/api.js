@@ -20,6 +20,11 @@ class api {
     let res = axios.get(`${this.url}/order/${username}`);
     return res;
   }
+
+  getMenu() {
+    let res = axios.get(`${this.url}/menu`);
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

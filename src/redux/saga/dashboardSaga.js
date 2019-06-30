@@ -8,12 +8,22 @@ function* getOrders(action) {
     let res = yield api.getOrders(action.payload);
     yield put(dashboardActions.getOrdersSuccess(res.data));
   } catch (err) {
-    // yield put(dashboardActions.signupFailure());
+    yield put(dashboardActions.getOrderFailure());
+  }
+}
+
+function* getMenu() {
+  try {
+    let res = yield api.getMenu();
+    yield put(dashboardActions.getMenuSuccess(res.data));
+  } catch (err) {
+    yield put(dashboardActions.getMenuFailure());
   }
 }
 
 function* watchDashboard() {
   yield takeEvery(dashboardConstants.GET_ORDERS, getOrders);
+  yield takeEvery(dashboardConstants.GET_MENU, getMenu);
 }
 
 export default function* dashboardSaga() {
