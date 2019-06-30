@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 import OrderList from './OrderList';
+import Balances from './Balances';
 
 const UserProfile = ({ username }) => {
   return (
@@ -19,6 +20,8 @@ const UserProfile = ({ username }) => {
         </div>
 
         <OrderList />
+
+        <Balances />
       </div>
     </div>
   );

@@ -111,6 +111,40 @@
   cursor: pointer;
 }
 
+.balances-container {
+  margin: 5px 0px 0px 25px;
+  display: flex;
+}
+
+.balances {
+  width: 280px;
+}
+
+.outstanding-balance {
+  font-size: 15px;
+}
+
+.total-balance {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.add-order-button {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 120px;
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: RUbik;
+  cursor: pointer;
+}
+
 .menu-container {
   height: 100%;
   width: 50%;
