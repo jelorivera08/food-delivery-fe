@@ -8,6 +8,7 @@ import Header from './Header';
 import './Dashboard.css';
 import UserProfile from './UserProfile';
 import Menu from './Menu';
+import OrderModal from './OrderModal';
 
 const Dashboard = ({
   snackbar,
@@ -38,6 +39,8 @@ const Dashboard = ({
         <Menu menu={menu} />
       </div>
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
+
+      <OrderModal menu={menu} />
     </div>
   );
 };

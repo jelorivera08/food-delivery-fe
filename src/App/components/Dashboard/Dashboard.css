@@ -184,3 +184,67 @@
   padding: 10px 0px;
   font-size: 25px;
 }
+
+.dashboard-modal-container {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-modal-content {
+  position: relative;
+  height: 500px;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.dashboard-modal-header {
+  height: 60px;
+  display: flex;
+  border-bottom: 1px solid gainsboro;
+  align-items: center;
+}
+
+.dashboard-modal-header-text {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 30px 0px;
+}
+
+.dashboard-modal-selects-container {
+  margin: 20px 0px 0px 40px;
+  display: flex;
+}
+
+.dashboard-modal-selects-total {
+  height: 55px;
+  margin: 8px;
+  border-radius: 5px;
+  width: 130px;
+  outline: none;
+  border: 1px solid #c5c2c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dashboard-modal-selects-total-text {
+  font-size: 20px;
+}
+
+.dashboard-modal-selects-total-label {
+  position: absolute;
+  font-size: 13px;
+  top: -8px;
+  padding: 0px 6px;
+  left: 9px;
+  color: gray;
+  background-color: white;
+}
