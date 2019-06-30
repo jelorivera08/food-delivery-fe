@@ -159,7 +159,31 @@
 .menu {
   background-color: #fff;
   height: 600px;
-  box-shadow: 0px -1px 8px 2px #ccc;
   width: 500px;
+  box-shadow: 0px -1px 8px 2px #ccc;
   border-radius: 20px;
+}
+
+.menu-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-header-text {
+  padding: 25px 0px 0px 25px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.menu-item-container {
+  padding: 20px 0px 0px 50px;
+}
+
+.menu-item {
+  padding: 10px 0px;
+  font-size: 25px;
+}
+
+.menu-item-text {
 }
