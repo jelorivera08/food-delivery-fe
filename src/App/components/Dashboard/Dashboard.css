@@ -218,7 +218,7 @@
 }
 
 .dashboard-modal-selects-container {
-  margin: 20px 0px 0px 40px;
+  margin: 20px 0px 0px 20px;
   display: flex;
 }
 
@@ -247,4 +247,17 @@
   left: 9px;
   color: gray;
   background-color: white;
+}
+
+.dashboard-modal-selects-total-delete {
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.dashboard-modal-selects {
+  height: 330px;
+  overflow: auto;
 }

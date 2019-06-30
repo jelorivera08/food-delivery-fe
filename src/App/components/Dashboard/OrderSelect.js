@@ -17,12 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect({ menu, type, value, handleChange }) {
+export default function OrderSelect({ menu, type, value, handleChange }) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
 
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
@@ -34,11 +30,19 @@ export default function SimpleSelect({ menu, type, value, handleChange }) {
   function getMenuItems(type) {
     if (type === 'Food') {
       return menu.map((menuItem) => {
-        return <MenuItem value={menuItem.name}>{menuItem.name}</MenuItem>;
+        return (
+          <MenuItem key={menuItem.name} value={menuItem.name}>
+            {menuItem.name}
+          </MenuItem>
+        );
       });
     } else {
       return QUANTITIES.map((menuItem) => {
-        return <MenuItem value={menuItem}>{menuItem}</MenuItem>;
+        return (
+          <MenuItem key={menuItem} value={menuItem}>
+            {menuItem}
+          </MenuItem>
+        );
       });
     }
   }
