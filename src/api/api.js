@@ -15,6 +15,11 @@ class api {
     let res = axios.post(`${this.url}/user/signup`, credentials);
     return res;
   }
+
+  getOrders(username) {
+    let res = axios.get(`${this.url}/order/${username}`);
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

@@ -1,7 +1,9 @@
 import * as loginConstants from '../../App/constants/loginConstants';
+import * as dashboardConstants from '../../App/constants/dashboardConstants';
 
 const dashboardReducer = (
   state = {
+    orders: [],
     username: '',
     snackbar: {
       open: false,
@@ -29,6 +31,11 @@ const dashboardReducer = (
           open: false,
           message: '',
         },
+      };
+    case dashboardConstants.GET_ORDER_SUCCESS:
+      return {
+        ...state,
+        orders: action.payload,
       };
 
     default:

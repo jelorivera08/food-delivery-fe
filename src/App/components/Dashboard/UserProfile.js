@@ -3,7 +3,7 @@ import './Dashboard.css';
 import OrderList from './OrderList';
 import Balances from './Balances';
 
-const UserProfile = ({ username }) => {
+const UserProfile = ({ username, orders }) => {
   return (
     <div className="user-profile-container">
       <div className="user-profile">
@@ -19,7 +19,7 @@ const UserProfile = ({ username }) => {
           </span>
         </div>
 
-        <OrderList />
+        <OrderList orders={orders} />
 
         <Balances />
       </div>

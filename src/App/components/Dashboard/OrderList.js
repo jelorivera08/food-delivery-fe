@@ -1,27 +1,22 @@
 import React from 'react';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const OrderList = () => {
+const OrderList = ({ orders }) => {
+  console.log(orders);
   return (
     <div className="order-list-container">
-      <div className="order-item">
-        <div className="order-item-text"> • 1 order of adobo with rice</div>
-        <div className="order-item-icon">
-          <DeleteForeverOutlinedIcon />
-        </div>
-      </div>
-      <div className="order-item">
-        <div className="order-item-text"> • 1 order of m with rice</div>
-        <div className="order-item-icon">
-          <DeleteForeverOutlinedIcon />
-        </div>
-      </div>
-      <div className="order-item">
-        <div className="order-item-text">• 1 order of askjhfsakj with rice</div>
-        <div className="order-item-icon">
-          <DeleteForeverOutlinedIcon />
-        </div>
-      </div>
+      {orders.map((order) => {
+        return (
+          <div className="order-item">
+            <div className="order-item-text">
+              {`• ${order.quantity} order of ${order.name}`}
+            </div>
+            <div className="order-item-icon">
+              <DeleteForeverOutlinedIcon />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

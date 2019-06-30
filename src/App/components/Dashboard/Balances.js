@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Balances = () => {
+const Balances = ({}) => {
   return (
     <div className="balances-container">
       <div className="balances">
