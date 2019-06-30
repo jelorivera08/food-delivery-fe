@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 
-const Header = () => {
+const Header = ({ logout }) => {
   return (
     <div className="header">
       <div className="header-text-left">
@@ -9,7 +9,9 @@ const Header = () => {
       </div>
 
       <div className="header-text-right">
-        <span className="header-text-right-unit">Log out</span>
+        <span className="header-text-right-unit" onClick={logout}>
+          Log out
+        </span>
       </div>
     </div>
   );

@@ -46,3 +46,9 @@ export function closeSnackbar() {
     type: loginConstants.CLOSE_SNACKBAR,
   };
 }
+
+export function logout() {
+  return {
+    type: loginConstants.LOGOUT,
+  };
+}

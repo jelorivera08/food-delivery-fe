@@ -8,8 +8,6 @@ import Snackbar from '../Snackbar/Snackbar';
 const Welcome = ({ login, snackbar, closeSnackbar, signup }) => {
   return (
     <div className="welcome">
-      <div className="welcome-left" />
-
       <WelcomeRight login={login} signup={signup} />
 
       <Snackbar {...snackbar} handleClose={closeSnackbar} />

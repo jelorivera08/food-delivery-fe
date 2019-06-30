@@ -13,6 +13,8 @@ const loginReducer = (
   switch (action.type) {
     case loginConstants.LOGIN_SUCCESS:
       return { ...state, isLoggedIn: true };
+    case loginConstants.LOGOUT:
+      return { ...state, isLoggedIn: false };
     case loginConstants.LOGIN_FAILURE:
       return {
         ...state,

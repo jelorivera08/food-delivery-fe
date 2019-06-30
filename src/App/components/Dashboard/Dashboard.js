@@ -5,10 +5,10 @@ import * as loginActions from '../../actions/loginActions';
 import Header from './Header';
 import './Dashboard.css';
 
-const Dashboard = ({ snackbar, closeSnackbar }) => {
+const Dashboard = ({ snackbar, logout, closeSnackbar }) => {
   return (
     <div className="dashboard">
-      <Header />
+      <Header logout={logout} />
       this is dashboard
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
     </div>
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   closeSnackbar: () => dispatch(loginActions.closeSnackbar()),
+  logout: () => dispatch(loginActions.logout()),
 });
 
 export default connect(

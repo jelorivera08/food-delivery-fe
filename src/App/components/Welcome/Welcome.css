@@ -6,13 +6,13 @@
 }
 
 .welcome-right {
-  width: 50%;
+  width: 100%;
   height: 100vh;
-  background-color: #0f3447;
+  background-color: #e6ecf0;
 }
 
 .welcome-right-header {
-  color: #fff;
+  color: #0f3447;
   font-size: 40px;
   display: flex;
   justify-content: center;
@@ -25,6 +25,7 @@
   border: 1px solid #fff;
   border-radius: 20px;
   margin: auto;
+  background-color: #0f3447;
 }
 
 .welcome-right-content-forms {
@@ -82,10 +83,4 @@
   margin: 20px 60px 0px 0px;
   cursor: pointer;
   outline: none;
-}
-
-.welcome-left {
-  width: 50%;
-  height: 100vh;
-  background-color: #e5bd21;
 }
