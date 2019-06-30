@@ -13,3 +13,15 @@ export function loginSuccess(payload) {
     payload,
   };
 }
+
+export function loginFailure() {
+  return {
+    type: loginConstants.LOGIN_FAILURE,
+  };
+}
+
+export function closeSnackbar() {
+  return {
+    type: loginConstants.CLOSE_SNACKBAR,
+  };
+}

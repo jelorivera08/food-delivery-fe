@@ -7,13 +7,8 @@ class api {
   }
 
   login(credentials) {
-    try {
-      let res = axios.post(`${this.url}/user/login`, credentials);
-      return res;
-    } catch (err) {
-      console.error('can not log in: ' + err);
-      return ERROR;
-    }
+    let res = axios.post(`${this.url}/user/login`, credentials);
+    return res;
   }
 }
 
