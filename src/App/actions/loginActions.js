@@ -7,6 +7,27 @@ export function login(payload) {
   };
 }
 
+export function signup(payload) {
+  return {
+    type: loginConstants.SIGNUP,
+    payload,
+  };
+}
+
+export function signupSuccess(payload) {
+  return {
+    type: loginConstants.SIGNUP_SUCCESS,
+    payload,
+  };
+}
+
+export function signupFailure(payload) {
+  return {
+    type: loginConstants.SIGNUP_FAILURE,
+    payload,
+  };
+}
+
 export function loginSuccess(payload) {
   return {
     type: loginConstants.LOGIN_SUCCESS,

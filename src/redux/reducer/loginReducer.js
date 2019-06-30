@@ -31,6 +31,24 @@ const loginReducer = (
           message: '',
         },
       };
+    case loginConstants.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Sign up success! Please log in.',
+        },
+      };
+    case loginConstants.SIGNUP_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Already a member? Sign in.',
+        },
+      };
 
     default:
       return state;

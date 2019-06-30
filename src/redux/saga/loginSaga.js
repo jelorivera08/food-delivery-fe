@@ -14,8 +14,19 @@ function* login(action) {
   }
 }
 
+function* signup(action) {
+  let res;
+  try {
+    res = yield api.signup(action.payload);
+    yield put(loginActions.signupSuccess(res.data));
+  } catch (err) {
+    yield put(loginActions.signupFailure());
+  }
+}
+
 function* watchLogin() {
   yield takeEvery(loginConstants.LOGIN, login);
+  yield takeEvery(loginConstants.SIGNUP, signup);
 }
 
 export default function* loginSaga() {

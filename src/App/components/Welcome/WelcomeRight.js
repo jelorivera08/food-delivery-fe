@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
-const WelcomeRight = ({ login }) => {
+const WelcomeRight = ({ login, signup }) => {
   const [showLogin, setShowLogin] = useState(true);
   const [credentials, setCredentials] = useState({
     username: '',
@@ -47,6 +47,7 @@ const WelcomeRight = ({ login }) => {
         handlePasswordChange={handlePasswordChange}
         handleUsernameChange={handleUsernameChange}
         credentials={credentials}
+        handleSignupClick={signup}
         handleLoginClick={handleLoginClick}
       />
     );

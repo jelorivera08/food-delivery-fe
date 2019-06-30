@@ -1,4 +1,4 @@
-import { URL, ERROR } from '../App/constants/globalConstants';
+import { URL } from '../App/constants/globalConstants';
 import axios from 'axios';
 
 class api {
@@ -8,6 +8,11 @@ class api {
 
   login(credentials) {
     let res = axios.post(`${this.url}/user/login`, credentials);
+    return res;
+  }
+
+  signup(credentials) {
+    let res = axios.post(`${this.url}/user/signup`, credentials);
     return res;
   }
 }
