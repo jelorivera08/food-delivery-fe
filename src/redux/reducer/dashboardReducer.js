@@ -24,7 +24,6 @@ const dashboardReducer = (
     case loginConstants.CLOSE_SNACKBAR:
       return {
         ...state,
-        username: action.payload,
         snackbar: {
           ...state.snackbar,
           open: false,

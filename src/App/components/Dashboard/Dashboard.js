@@ -2,10 +2,13 @@ import React from 'react';
 import Snackbar from '../Snackbar/Snackbar';
 import { connect } from 'react-redux';
 import * as loginActions from '../../actions/loginActions';
+import Header from './Header';
+import './Dashboard.css';
 
 const Dashboard = ({ snackbar, closeSnackbar }) => {
   return (
-    <div>
+    <div className="dashboard">
+      <Header />
       this is dashboard
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
     </div>
