@@ -14,6 +14,7 @@ const Dashboard = ({
   logout,
   closeSnackbar,
   username,
+  debt,
   getOrders,
   orders,
 }) => {
@@ -29,6 +30,7 @@ const Dashboard = ({
           orders={orders}
           username={username}
           getOrders={getOrders}
+          debt={debt}
         />
         <Menu />
       </div>
@@ -40,6 +42,7 @@ const Dashboard = ({
 const mapStateToProps = (state) => ({
   snackbar: state.dashboard.snackbar,
   username: 'jelo',
+  debt: state.dashboard.debt,
   orders: state.dashboard.orders,
   //TODO: UNCOMMENT THIS
   // username: state.dashboard.username,

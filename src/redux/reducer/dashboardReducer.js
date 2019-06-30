@@ -5,6 +5,7 @@ const dashboardReducer = (
   state = {
     orders: [],
     username: '',
+    debt: 0,
     snackbar: {
       open: false,
       message: '',
@@ -16,7 +17,8 @@ const dashboardReducer = (
     case loginConstants.LOGIN_SUCCESS:
       return {
         ...state,
-        username: action.payload,
+        username: action.payload.username,
+        debt: action.payload.debt,
         snackbar: {
           ...state.snackbar,
           open: true,

@@ -1,13 +1,24 @@
 import React from 'react';
 
-const Balances = ({}) => {
+const Balances = ({ debt, orders }) => {
+  const totalOrders = () => {
+    let total = 0;
+
+    orders.forEach((order) => {
+      total += order.price;
+    });
+
+    total += debt;
+    return total;
+  };
+
   return (
     <div className="balances-container">
       <div className="balances">
         <div className="outstanding-balance">
-          Your outstanding balace: 75 php
+          {`Your outstanding balace: ${debt} PHP`}
         </div>
-        <div className="total-balance">Total: 100 php</div>
+        <div className="total-balance">{`Total: ${totalOrders()} PHP`}</div>
       </div>
       <div className="add-order-button">
         <span>Add order</span>
