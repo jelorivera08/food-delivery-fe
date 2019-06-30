@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Welcome from './components/Welcome/Welcome';
+import Dashboard from './components/Dashboard/Dashboard';
 
 const App = ({ login }) => {
   if (!login.isLoggedIn) {
     return <Welcome />;
   }
 
-  return <div>henlo member</div>;
+  return <Dashboard />;
 };
 
 const mapStateToProps = (state) => ({
