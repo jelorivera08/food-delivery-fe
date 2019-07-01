@@ -112,6 +112,15 @@ const OrderModal = ({ menu }) => {
             );
           })}
         </div>
+
+        <div className="dashboard-modal-buttons-container">
+          <div className="dashboard-modal-buttons-container-button-cancel">
+            <span>Cancel</span>
+          </div>
+          <div className="dashboard-modal-buttons-container-button-confirm">
+            <span>Confirm</span>
+          </div>
+        </div>
       </div>
     </div>
   );

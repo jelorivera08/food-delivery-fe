@@ -261,3 +261,53 @@
   height: 330px;
   overflow: auto;
 }
+
+.dashboard-modal-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard-modal-buttons-container-button-cancel {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 120px;
+  border-radius: 20px;
+  height: 40px;
+  margin: 40px 20px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: RUbik;
+  cursor: pointer;
+}
+
+.dashboard-modal-buttons-container-button-confirm {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 120px;
+  border-radius: 20px;
+  height: 40px;
+  margin: 40px 50px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: RUbik;
+  cursor: pointer;
+}
+
+.dashboard-modal-buttons-container-button-confirm:hover {
+  background-color: #fff;
+  color: #0f3447;
+}
+
+.dashboard-modal-buttons-container-button-cancel:hover {
+  background-color: #fff;
+  color: #0f3447;
+}
+
+.add-order-button:hover {
+  background-color: #fff;
+  color: #0f3447;
+}
