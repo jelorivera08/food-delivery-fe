@@ -18,6 +18,7 @@ const Dashboard = ({
   menu,
   debt,
   getOrders,
+  putOrders,
   getMenu,
   orders,
 }) => {
@@ -40,14 +41,14 @@ const Dashboard = ({
       </div>
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
 
-      <OrderModal menu={menu} />
+      <OrderModal username={username} putOrders={putOrders} menu={menu} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   snackbar: state.dashboard.snackbar,
-  username: 'jelo',
+  username: 'pop',
   debt: state.dashboard.debt,
   orders: state.dashboard.orders,
   menu: state.dashboard.menu,
@@ -60,6 +61,8 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(loginActions.logout()),
   getOrders: (username) => dispatch(dashboardActions.getOrders(username)),
   getMenu: () => dispatch(dashboardActions.getMenu()),
+  putOrders: (orders, username) =>
+    dispatch(dashboardActions.putOrders(orders, username)),
 });
 
 export default connect(

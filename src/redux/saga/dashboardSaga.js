@@ -21,9 +21,20 @@ function* getMenu() {
   }
 }
 
+function* putOrders(action) {
+  try {
+    yield api.putOrders(action.payload);
+    yield put(dashboardActions.getOrders(action.payload.username));
+    yield put(dashboardActions.putOrdersSuccess());
+  } catch (err) {
+    yield put(dashboardActions.putOrdersFailure());
+  }
+}
+
 function* watchDashboard() {
   yield takeEvery(dashboardConstants.GET_ORDERS, getOrders);
   yield takeEvery(dashboardConstants.GET_MENU, getMenu);
+  yield takeEvery(dashboardConstants.PUT_ORDERS, putOrders);
 }
 
 export default function* dashboardSaga() {

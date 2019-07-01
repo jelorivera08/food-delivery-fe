@@ -14,9 +14,8 @@ const OrderList = ({ orders }) => {
         return (
           <div key={order._id} className="order-item">
             <div className="order-item-text">
-              {`• ${order.quantity} order of ${order.name} for ${
-                order.price
-              } PHP`}
+              {`• ${order.quantity} order of ${order.name} for ${order.price *
+                order.quantity} PHP`}
             </div>
             <div className="order-item-icon">
               <DeleteForeverOutlinedIcon />

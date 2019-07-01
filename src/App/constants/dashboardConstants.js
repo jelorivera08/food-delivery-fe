@@ -4,3 +4,6 @@ export const GET_MENU = 'GET_MENU';
 export const GET_ORDER_FAIL = 'GET_ORDER_FAIL';
 export const GET_MENU_SUCCESS = 'GET_MENU_SUCCESS';
 export const GET_MENU_FAIL = 'GET_MENU_FAIL';
+export const PUT_ORDERS = 'PUT_ORDERS';
+export const PUT_ORDER_SUCCESS = 'PUT_ORDER_SUCCESS';
+export const PUT_ORDERS_FAILURE = 'PUT_ORDERS_FAILURE';

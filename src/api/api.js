@@ -25,6 +25,14 @@ class api {
     let res = axios.get(`${this.url}/menu`);
     return res;
   }
+
+  putOrders(payload) {
+    let res = axios.post(`${this.url}/order`, {
+      orders: payload.orders,
+      username: payload.username,
+    });
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

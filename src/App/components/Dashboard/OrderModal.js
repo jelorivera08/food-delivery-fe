@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Select from './OrderSelect';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const OrderModal = ({ menu }) => {
-  const [orders, setOrders] = useState([
-    {
-      name: '',
-      quantity: '',
-      total: 0,
-    },
-  ]);
+const initialOrderState = [
+  {
+    name: '',
+    quantity: '',
+    price: '',
+    total: 0,
+  },
+];
+
+const OrderModal = ({ menu, putOrders, username }) => {
+  const [orders, setOrders] = useState(initialOrderState);
 
   useEffect(() => {
     const ordersLastIndex = orders.length - 1;
@@ -19,11 +22,7 @@ const OrderModal = ({ menu }) => {
       orders[ordersLastIndex].quantity
     ) {
       let ordersClone = [...orders];
-      ordersClone.push({
-        name: '',
-        quantity: '',
-        total: 0,
-      });
+      ordersClone.push(initialOrderState[0]);
 
       setOrders(ordersClone);
     }
@@ -31,16 +30,26 @@ const OrderModal = ({ menu }) => {
 
   const handleNameChange = (index) => (e) => {
     let ordersClone = [...orders];
+    let orderName = e.target.value;
 
-    ordersClone[index] = { ...ordersClone[index], name: e.target.value };
+    menu.forEach((menuItem) => {
+      if (menuItem.name === orderName) {
+        ordersClone[index] = {
+          ...ordersClone[index],
+          name: orderName,
+          price: menuItem.price,
+        };
+      }
+    });
 
     setOrders(ordersClone);
   };
 
   const handleQuantityChange = (index) => (e) => {
     let ordersClone = [...orders];
+    let quantity = e.target.value;
 
-    ordersClone[index] = { ...ordersClone[index], quantity: e.target.value };
+    ordersClone[index] = { ...ordersClone[index], quantity };
 
     setOrders(ordersClone);
   };
@@ -50,7 +59,7 @@ const OrderModal = ({ menu }) => {
     let indexedOrder = orderClone[index];
     let total = 0;
 
-    menu.map((menuItem) => {
+    menu.forEach((menuItem) => {
       if (menuItem.name === indexedOrder.name) {
         total = menuItem.price * indexedOrder.quantity;
       }
@@ -64,6 +73,15 @@ const OrderModal = ({ menu }) => {
     orderClone.splice(index, 1);
 
     setOrders(orderClone);
+  };
+
+  const handlePutOrders = () => {
+    let ordersClone = [...orders];
+
+    ordersClone.pop();
+
+    putOrders(ordersClone, username);
+    setOrders(initialOrderState);
   };
 
   return (
@@ -117,7 +135,10 @@ const OrderModal = ({ menu }) => {
           <div className="dashboard-modal-buttons-container-button-cancel">
             <span>Cancel</span>
           </div>
-          <div className="dashboard-modal-buttons-container-button-confirm">
+          <div
+            onClick={handlePutOrders}
+            className="dashboard-modal-buttons-container-button-confirm"
+          >
             <span>Confirm</span>
           </div>
         </div>

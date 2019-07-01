@@ -24,6 +24,15 @@ const dashboardReducer = (
           message: 'Unable to get menu.',
         },
       };
+    case dashboardConstants.PUT_ORDER_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Order placed successfuly.',
+        },
+      };
     case dashboardConstants.GET_MENU_SUCCESS:
       return {
         ...state,
@@ -63,7 +72,15 @@ const dashboardReducer = (
         ...state,
         orders: action.payload,
       };
-
+    case dashboardConstants.PUT_ORDERS_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Unable to place order.',
+        },
+      };
     default:
       return state;
   }

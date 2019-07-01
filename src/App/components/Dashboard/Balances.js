@@ -5,7 +5,7 @@ const Balances = ({ debt, orders }) => {
     let total = 0;
 
     orders.forEach((order) => {
-      total += order.price;
+      total += order.price * order.quantity;
     });
 
     total += debt;

@@ -38,3 +38,22 @@ export function getMenuFailure() {
     type: dashboardConstants.GET_MENU_FAIL,
   };
 }
+
+export function putOrders(orders, username) {
+  return {
+    type: dashboardConstants.PUT_ORDERS,
+    payload: { orders, username },
+  };
+}
+
+export function putOrdersSuccess() {
+  return {
+    type: dashboardConstants.PUT_ORDER_SUCCESS,
+  };
+}
+
+export function putOrdersFailure() {
+  return {
+    type: dashboardConstants.PUT_ORDERS_FAILURE,
+  };
+}
