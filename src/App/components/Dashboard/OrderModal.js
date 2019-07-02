@@ -11,7 +11,7 @@ const initialOrderState = [
   },
 ];
 
-const OrderModal = ({ menu, putOrders, username }) => {
+const OrderModal = ({ menu, putOrders, username, incompleteOrders }) => {
   const [orders, setOrders] = useState(initialOrderState);
 
   useEffect(() => {
@@ -80,8 +80,12 @@ const OrderModal = ({ menu, putOrders, username }) => {
 
     ordersClone.pop();
 
-    putOrders(ordersClone, username);
-    setOrders(initialOrderState);
+    if (ordersClone.length > 0) {
+      putOrders(ordersClone, username);
+      setOrders(initialOrderState);
+    } else {
+      incompleteOrders();
+    }
   };
 
   return (
@@ -95,7 +99,7 @@ const OrderModal = ({ menu, putOrders, username }) => {
           {orders.map((order, index) => {
             return (
               <div
-                key={order.name}
+                key={`${order.name}${index}`}
                 className="dashboard-modal-selects-container"
               >
                 <Select

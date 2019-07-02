@@ -57,3 +57,9 @@ export function putOrdersFailure() {
     type: dashboardConstants.PUT_ORDERS_FAILURE,
   };
 }
+
+export function incompleteOrders() {
+  return {
+    type: dashboardConstants.INCOMPLETE_ORDERS,
+  };
+}

@@ -20,6 +20,7 @@ const Dashboard = ({
   getOrders,
   putOrders,
   getMenu,
+  incompleteOrders,
   orders,
 }) => {
   useEffect(() => {
@@ -41,7 +42,12 @@ const Dashboard = ({
       </div>
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
 
-      <OrderModal username={username} putOrders={putOrders} menu={menu} />
+      <OrderModal
+        incompleteOrders={incompleteOrders}
+        username={username}
+        putOrders={putOrders}
+        menu={menu}
+      />
     </div>
   );
 };
@@ -63,6 +69,7 @@ const mapDispatchToProps = (dispatch) => ({
   getMenu: () => dispatch(dashboardActions.getMenu()),
   putOrders: (orders, username) =>
     dispatch(dashboardActions.putOrders(orders, username)),
+  incompleteOrders: () => dispatch(dashboardActions.incompleteOrders()),
 });
 
 export default connect(

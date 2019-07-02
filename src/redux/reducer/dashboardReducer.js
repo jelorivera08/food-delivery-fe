@@ -15,6 +15,15 @@ const dashboardReducer = (
   action
 ) => {
   switch (action.type) {
+    case dashboardConstants.INCOMPLETE_ORDERS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Please complete order form.',
+        },
+      };
     case dashboardConstants.GET_MENU_FAIL:
       return {
         ...state,
