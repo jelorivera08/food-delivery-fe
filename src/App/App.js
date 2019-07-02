@@ -4,10 +4,9 @@ import Welcome from './components/Welcome/Welcome';
 import Dashboard from './components/Dashboard/Dashboard';
 
 const App = ({ login }) => {
-  // TODO: UNCOMMENT THIS
-  // if (!login.isLoggedIn) {
-  //   return <Welcome />;
-  // }
+  if (!login.isLoggedIn) {
+    return <Welcome />;
+  }
 
   return <Dashboard />;
 };

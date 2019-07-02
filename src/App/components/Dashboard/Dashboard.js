@@ -67,12 +67,10 @@ const Dashboard = ({
 
 const mapStateToProps = (state) => ({
   snackbar: state.dashboard.snackbar,
-  username: 'pop',
   debt: state.dashboard.debt,
   orders: state.dashboard.orders,
   menu: state.dashboard.menu,
-  //TODO: UNCOMMENT THIS
-  // username: state.dashboard.username,
+  username: state.dashboard.username,
 });
 
 const mapDispatchToProps = (dispatch) => ({
