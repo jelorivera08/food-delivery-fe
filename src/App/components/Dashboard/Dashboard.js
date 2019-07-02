@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Snackbar from '../Snackbar/Snackbar';
 import { connect } from 'react-redux';
 import * as loginActions from '../../actions/loginActions';
@@ -23,6 +23,8 @@ const Dashboard = ({
   incompleteOrders,
   orders,
 }) => {
+  const [isOrdering, setIsOrdering] = useState(false);
+
   useEffect(() => {
     getOrders(username);
     getMenu();
@@ -33,6 +35,7 @@ const Dashboard = ({
       <Header logout={logout} />
       <div className="dashboard-body">
         <UserProfile
+          setIsOrdering={setIsOrdering}
           orders={orders}
           username={username}
           getOrders={getOrders}
@@ -42,12 +45,16 @@ const Dashboard = ({
       </div>
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
 
-      <OrderModal
-        incompleteOrders={incompleteOrders}
-        username={username}
-        putOrders={putOrders}
-        menu={menu}
-      />
+      {isOrdering && (
+        <OrderModal
+          setIsOrdering={setIsOrdering}
+          isOrdering={isOrdering}
+          incompleteOrders={incompleteOrders}
+          username={username}
+          putOrders={putOrders}
+          menu={menu}
+        />
+      )}
     </div>
   );
 };

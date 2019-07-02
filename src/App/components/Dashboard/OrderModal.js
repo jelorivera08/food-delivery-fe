@@ -11,7 +11,13 @@ const initialOrderState = [
   },
 ];
 
-const OrderModal = ({ menu, putOrders, username, incompleteOrders }) => {
+const OrderModal = ({
+  setIsOrdering,
+  menu,
+  putOrders,
+  username,
+  incompleteOrders,
+}) => {
   const [orders, setOrders] = useState(initialOrderState);
 
   useEffect(() => {
@@ -83,9 +89,14 @@ const OrderModal = ({ menu, putOrders, username, incompleteOrders }) => {
     if (ordersClone.length > 0) {
       putOrders(ordersClone, username);
       setOrders(initialOrderState);
+      setIsOrdering(false);
     } else {
       incompleteOrders();
     }
+  };
+
+  const handleCancelOrder = () => {
+    setIsOrdering(false);
   };
 
   return (
@@ -136,7 +147,10 @@ const OrderModal = ({ menu, putOrders, username, incompleteOrders }) => {
         </div>
 
         <div className="dashboard-modal-buttons-container">
-          <div className="dashboard-modal-buttons-container-button-cancel">
+          <div
+            onClick={handleCancelOrder}
+            className="dashboard-modal-buttons-container-button-cancel"
+          >
             <span>Cancel</span>
           </div>
           <div

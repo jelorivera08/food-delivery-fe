@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Balances = ({ debt, orders }) => {
+const Balances = ({ setIsOrdering, debt, orders }) => {
   const totalOrders = () => {
     let total = 0;
 
@@ -12,6 +12,10 @@ const Balances = ({ debt, orders }) => {
     return total;
   };
 
+  const handleAddOrderClick = () => {
+    setIsOrdering(true);
+  };
+
   return (
     <div className="balances-container">
       <div className="balances">
@@ -20,7 +24,7 @@ const Balances = ({ debt, orders }) => {
         </div>
         <div className="total-balance">{`Total: ${totalOrders()} PHP`}</div>
       </div>
-      <div className="add-order-button">
+      <div onClick={handleAddOrderClick} className="add-order-button">
         <span>Add order</span>
       </div>
     </div>
