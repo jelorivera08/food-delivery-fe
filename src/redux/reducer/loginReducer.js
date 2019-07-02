@@ -21,7 +21,7 @@ const loginReducer = (
         snackbar: {
           ...state.snackbar,
           open: true,
-          message: 'Login failed. :(',
+          message: 'Please sign up first.',
         },
       };
     case loginConstants.CLOSE_SNACKBAR:
