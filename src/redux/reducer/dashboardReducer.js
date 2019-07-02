@@ -15,6 +15,24 @@ const dashboardReducer = (
   action
 ) => {
   switch (action.type) {
+    case dashboardConstants.DELETE_ORDER_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Unable to delete order.',
+        },
+      };
+    case dashboardConstants.DELETE_ORDER_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Order successfuly deleted.',
+        },
+      };
     case dashboardConstants.INCOMPLETE_ORDERS:
       return {
         ...state,

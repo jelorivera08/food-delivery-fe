@@ -33,6 +33,13 @@ class api {
     });
     return res;
   }
+
+  deleteOrder(payload) {
+    let res = axios.delete(`${this.url}/order`, {
+      data: { id: payload },
+    });
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

@@ -1,7 +1,10 @@
 import React from 'react';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const OrderList = ({ orders }) => {
+const OrderList = ({ deleteOrder, orders }) => {
+  const handleDeleteClick = (id) => () => {
+    deleteOrder(id);
+  };
   return (
     <div className="order-list-container">
       {orders.length <= 0 && (
@@ -18,7 +21,9 @@ const OrderList = ({ orders }) => {
                 order.quantity} PHP`}
             </div>
             <div className="order-item-icon">
-              <DeleteForeverOutlinedIcon />
+              <DeleteForeverOutlinedIcon
+                onClick={handleDeleteClick(order._id)}
+              />
             </div>
           </div>
         );

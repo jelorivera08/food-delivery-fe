@@ -3,7 +3,13 @@ import './Dashboard.css';
 import OrderList from './OrderList';
 import Balances from './Balances';
 
-const UserProfile = ({ setIsOrdering, username, orders, debt }) => {
+const UserProfile = ({
+  deleteOrder,
+  setIsOrdering,
+  username,
+  orders,
+  debt,
+}) => {
   return (
     <div className="user-profile-container">
       <div className="user-profile">
@@ -19,7 +25,7 @@ const UserProfile = ({ setIsOrdering, username, orders, debt }) => {
           </span>
         </div>
 
-        <OrderList orders={orders} />
+        <OrderList deleteOrder={deleteOrder} orders={orders} />
 
         <Balances setIsOrdering={setIsOrdering} debt={debt} orders={orders} />
       </div>

@@ -63,3 +63,22 @@ export function incompleteOrders() {
     type: dashboardConstants.INCOMPLETE_ORDERS,
   };
 }
+
+export function deleteOrder(orderId, username) {
+  return {
+    type: dashboardConstants.DELETE_ORDER,
+    payload: { orderId, username },
+  };
+}
+
+export function deleteOrderSuccess() {
+  return {
+    type: dashboardConstants.DELETE_ORDER_SUCCESS,
+  };
+}
+
+export function deleteOrderFailure() {
+  return {
+    type: dashboardConstants.DELETE_ORDER_FAILURE,
+  };
+}
