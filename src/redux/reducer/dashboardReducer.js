@@ -79,6 +79,7 @@ const dashboardReducer = (
         ...state,
         username: action.payload.username,
         debt: action.payload.debt,
+        type: action.payload.type,
         snackbar: {
           ...state.snackbar,
           open: true,

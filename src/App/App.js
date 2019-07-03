@@ -1,18 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Welcome from './components/Welcome/Welcome';
+import AdminPage from './components/AdminPage/AdminPage';
 import Dashboard from './components/Dashboard/Dashboard';
+import * as globalConstants from './constants/globalConstants';
 
-const App = ({ login }) => {
-  if (!login.isLoggedIn) {
-    return <Welcome />;
+const App = ({ login, type }) => {
+  // if (!login.isLoggedIn) {
+  //   return <Welcome />;
+  // }
+
+  if (type === globalConstants.ADMIN) {
+    return <AdminPage />;
+  } else {
+    return <Dashboard />;
   }
-
-  return <Dashboard />;
 };
 
 const mapStateToProps = (state) => ({
   login: state.login,
+  type: 'admin',
+  // type: state.dashboard.type,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

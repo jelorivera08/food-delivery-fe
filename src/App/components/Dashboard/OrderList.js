@@ -1,9 +1,13 @@
 import React from 'react';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const OrderList = ({ deleteOrder, orders }) => {
+const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
   const handleDeleteClick = (id) => () => {
     deleteOrder(id);
+  };
+
+  const handleAddOrder = () => {
+    setIsOrdering(true);
   };
 
   const checkIfCutoff = () => {
@@ -24,7 +28,9 @@ const OrderList = ({ deleteOrder, orders }) => {
     <div className="order-list-container">
       {orders.length <= 0 && (
         <div className="order-item">
-          <div className="order-item-text">No orders yet.</div>
+          <div onClick={handleAddOrder} className="order-item-text">
+            No orders yet. Add one?
+          </div>
         </div>
       )}
 

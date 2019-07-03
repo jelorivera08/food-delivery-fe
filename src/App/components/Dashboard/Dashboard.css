@@ -105,6 +105,11 @@
 
 .order-item-text {
   width: 60%;
+  cursor: pointer;
+}
+
+.order-item-text:hover {
+  text-decoration: underline;
 }
 
 .order-item-icon {
@@ -134,7 +139,7 @@
   background-color: #0f3447;
   color: #fff;
   border: 1px solid black;
-  width: 120px;
+  width: 140px;
   border-radius: 20px;
   height: 40px;
   margin: auto;
@@ -182,7 +187,7 @@
 
 .menu-item {
   padding: 10px 0px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .dashboard-modal-container {

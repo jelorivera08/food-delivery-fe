@@ -25,7 +25,11 @@ const UserProfile = ({
           </span>
         </div>
 
-        <OrderList deleteOrder={deleteOrder} orders={orders} />
+        <OrderList
+          setIsOrdering={setIsOrdering}
+          deleteOrder={deleteOrder}
+          orders={orders}
+        />
 
         <Balances setIsOrdering={setIsOrdering} debt={debt} orders={orders} />
       </div>

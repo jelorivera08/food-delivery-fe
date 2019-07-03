@@ -25,7 +25,7 @@ const Balances = ({ setIsOrdering, debt, orders }) => {
         <div className="total-balance">{`Total: ${totalOrders()} PHP`}</div>
       </div>
       <div onClick={handleAddOrderClick} className="add-order-button">
-        <span>Add order</span>
+        <span>Make an order</span>
       </div>
     </div>
   );
