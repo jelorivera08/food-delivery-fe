@@ -27,8 +27,8 @@ const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
   return (
     <div className="order-list-container">
       {orders.length <= 0 && (
-        <div className="order-item">
-          <div onClick={handleAddOrder} className="order-item-text">
+        <div className="order-item-none">
+          <div onClick={handleAddOrder} className="order-item-text-none">
             No orders yet. Add one?
           </div>
         </div>

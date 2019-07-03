@@ -78,6 +78,8 @@
 
 .admin-buttons{
   display: flex;
+  padding: 7px 0px;
+  
 }
 
 .admin-add-order-button:hover {

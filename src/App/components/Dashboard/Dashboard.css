@@ -105,10 +105,13 @@
 
 .order-item-text {
   width: 60%;
-  cursor: pointer;
 }
 
-.order-item-text:hover {
+.order-item-text-none {
+  width: 60%;
+  cursor: pointer;
+}
+.order-item-text-none:hover {
   text-decoration: underline;
 }
 
@@ -316,4 +319,3 @@
   background-color: #fff;
   color: #0f3447;
 }
-
