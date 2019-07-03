@@ -1,0 +1,77 @@
+.admin-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 46px);
+}
+
+.admin-dashboard-container {
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 3px -1px 8px 2px #ccc;
+}
+
+.admin-dashboard-header {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 25px 0 0 25px;
+}
+
+.order-container {
+  padding: 25px 0 10px 25px;
+  display: flex;
+  border-bottom: 1px solid gray;
+}
+
+.all-orders-container {
+  overflow: auto;
+  height: calc(100% - 110px);
+}
+
+.order-from {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.orders-container {
+  width: 60%;
+}
+
+.order-unit {
+  padding: 2px;
+}
+
+.dashboard-modal-container {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-modal-content {
+  position: relative;
+  height: 500px;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.dashboard-modal-header {
+  height: 60px;
+  display: flex;
+  border-bottom: 1px solid gainsboro;
+  align-items: center;
+}
+
+.dashboard-modal-header-text {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 30px 0px;
+}

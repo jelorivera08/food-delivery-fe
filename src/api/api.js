@@ -40,6 +40,12 @@ class api {
     });
     return res;
   }
+
+  getAllOrders() {
+    let res = axios.get(`${this.url}/order`);
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);
