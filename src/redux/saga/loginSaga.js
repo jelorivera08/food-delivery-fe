@@ -19,6 +19,7 @@ function* signup(action) {
   try {
     res = yield api.signup(action.payload);
     yield put(loginActions.signupSuccess(res.data));
+    yield put(loginActions.login(action.payload));
   } catch (err) {
     yield put(loginActions.signupFailure());
   }
