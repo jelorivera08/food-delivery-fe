@@ -75,3 +75,27 @@
   font-size: 30px;
   padding: 10px 30px 0px;
 }
+
+.admin-buttons{
+  display: flex;
+}
+
+.admin-add-order-button:hover {
+  background-color: #fff;
+  color: #0f3447;
+}
+
+.admin-add-order-button {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 140px;
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: RUbik;
+  cursor: pointer;
+}

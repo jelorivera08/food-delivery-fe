@@ -40,31 +40,23 @@ const Orders = ({ allOrders }) => {
   const formattedOrders = formatAllOrders();
 
   return (
-    <div className="admin-dashboard">
-      <div className="admin-dashboard-container">
-        <div className="admin-dashboard-header">
-          Current orders are as follows.
-        </div>
-
-        <div className="all-orders-container">
-          {formattedOrders.map((formattedOrder) => {
-            return (
-              <div key={formattedOrder.name} className="order-container">
-                <div className="order-from">{formattedOrder.orderFromUser}</div>
-                <div className="orders-container">
-                  {formattedOrder.orders.map((order) => {
-                    return (
-                      <div key={order._id} className="order-unit">
-                        {`${order.quantity} ${order.name}`}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <div className="all-orders-container">
+      {formattedOrders.map((formattedOrder) => {
+        return (
+          <div key={formattedOrder.name} className="order-container">
+            <div className="order-from">{formattedOrder.orderFromUser}</div>
+            <div className="orders-container">
+              {formattedOrder.orders.map((order) => {
+                return (
+                  <div key={order._id} className="order-unit">
+                    {`${order.quantity} ${order.name}`}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

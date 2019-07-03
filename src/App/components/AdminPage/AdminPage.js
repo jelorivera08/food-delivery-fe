@@ -6,6 +6,7 @@ import * as loginActions from '../../actions/loginActions';
 import { connect } from 'react-redux';
 import Orders from './Orders';
 import * as adminActions from '../../actions/adminActions';
+import BottomButtons from './BottomButtons';
 
 const AdminPage = ({ logout, getAllOrders, allOrders }) => {
   useEffect(() => {
@@ -15,7 +16,15 @@ const AdminPage = ({ logout, getAllOrders, allOrders }) => {
   return (
     <div className="dashboard">
       <Header logout={logout} />
-      <Orders allOrders={allOrders} />
+      <div className="admin-dashboard">
+        <div className="admin-dashboard-container">
+          <div className="admin-dashboard-header">
+            Current orders are as follows.
+          </div>
+          <Orders allOrders={allOrders} />
+          <BottomButtons getAllOrders={getAllOrders} />
+        </div>
+      </div>
     </div>
   );
 };
