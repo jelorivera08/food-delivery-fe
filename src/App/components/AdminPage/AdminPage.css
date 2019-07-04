@@ -76,10 +76,9 @@
   padding: 10px 30px 0px;
 }
 
-.admin-buttons{
+.admin-buttons {
   display: flex;
   padding: 7px 0px;
-  
 }
 
 .admin-add-order-button:hover {
@@ -100,4 +99,87 @@
   align-items: center;
   font-family: RUbik;
   cursor: pointer;
+}
+
+.dashboard-modal-menu {
+  padding: 25px 0px 0px 30px;
+  height: calc(100% - 145px);
+  overflow: auto;
+}
+
+.dashboard-modal-menu-list {
+  font-size: 18px;
+}
+
+.dashboard-modal-menu-input {
+  height: 60px;
+  display: flex;
+}
+
+.dashboard-modal-menu-item {
+  padding: 3px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-modal-menu-item-price {
+  width: 50%;
+  display: flex;
+}
+
+.dashboard-modal-menu-item-name {
+  width: 50%;
+}
+
+.dashboard-modal-menu-item-price-label {
+  width: 40%;
+}
+
+.menu-input-name {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 22px;
+  padding: 5px 0px 0px 2px;
+  width: 70%;
+}
+
+.menu-input-price {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 22px;
+  padding: 5px 0px 0px 2px;
+  width: 60%;
+  margin-left: 30px;
+}
+
+.dashboard-modal-menu-add-icon {
+  margin: 0px 15px 20px 10px;
+  cursor: pointer;
+}
+
+.admin-edit-menu-button:hover {
+  background-color: #fff;
+  color: #0f3447;
+}
+
+.admin-edit-menu-button {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 140px;
+  border-radius: 20px;
+  height: 40px;
+  display: flex;
+  margin-right: 50px;
+  justify-content: center;
+  align-items: center;
+  font-family: RUbik;
+  cursor: pointer;
+}
+
+.admin-edit-menu-button-container {
+  display: flex;
+  justify-content: flex-end;
 }

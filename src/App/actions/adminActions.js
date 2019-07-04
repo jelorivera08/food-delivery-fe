@@ -12,3 +12,56 @@ export function getAllOrdersSuccess(orders) {
     payload: orders,
   };
 }
+
+export function addMenuItem(menuItem) {
+  return {
+    type: adminConstants.ADD_MENU_ITEM,
+    payload: {
+      name: menuItem.name,
+      price: menuItem.price,
+    },
+  };
+}
+
+export function getAllOrdersFailure() {
+  return {
+    type: adminConstants.GET_ALL_ORDERS_FAILURE,
+  };
+}
+
+export function closeSnackbar() {
+  return {
+    type: adminConstants.CLOSE_SNACKBAR,
+  };
+}
+
+export function addMenuItemSuccess() {
+  return {
+    type: adminConstants.ADD_MENU_ITEM_SUCCESS,
+  };
+}
+
+export function addMenuItemFailure() {
+  return {
+    type: adminConstants.ADD_MENU_ITEM_FAILURE,
+  };
+}
+
+export function deleteMenuItem(menuItemId) {
+  return {
+    type: adminConstants.DELETE_MENU_ITEM,
+    payload: menuItemId,
+  };
+}
+
+export function deleteMenuItemSuccess() {
+  return {
+    type: adminConstants.DELETE_MENU_ITEM_SUCCESS,
+  };
+}
+
+export function deleteMenuItemFailure() {
+  return {
+    type: adminConstants.DELETE_MENU_ITEM_FAILURE,
+  };
+}

@@ -46,6 +46,23 @@ class api {
 
     return res;
   }
+
+  addMenuItem(payload) {
+    let res = axios.post(`${this.url}/menu`, {
+      name: payload.name,
+      price: payload.price,
+    });
+
+    return res;
+  }
+
+  deleteMenuItem(menuItemId) {
+    let res = axios.delete(`${this.url}/menu`, {
+      data: { id: menuItemId },
+    });
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);
