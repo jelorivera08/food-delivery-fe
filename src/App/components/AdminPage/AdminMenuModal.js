@@ -74,12 +74,14 @@ const AdminMenuModal = ({
                 type="text"
               />
             </div>
-            <img
-              onClick={handleAddMenuItem}
-              className="dashboard-modal-menu-add-icon"
-              src={addIcon}
-              alt="add"
-            />
+            <div className="dashboard-modal-menu-add-icon-container">
+              <img
+                onClick={handleAddMenuItem}
+                className="dashboard-modal-menu-add-icon"
+                src={addIcon}
+                alt="add"
+              />
+            </div>
           </div>
 
           <div className="dashboard-modal-menu-list">
