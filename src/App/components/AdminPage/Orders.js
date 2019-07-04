@@ -43,7 +43,7 @@ const Orders = ({ allOrders }) => {
     <div className="all-orders-container">
       {formattedOrders.map((formattedOrder) => {
         return (
-          <div key={formattedOrder.name} className="order-container">
+          <div key={formattedOrder.orderFromUser} className="order-container">
             <div className="order-from">{formattedOrder.orderFromUser}</div>
             <div className="orders-container">
               {formattedOrder.orders.map((order) => {
