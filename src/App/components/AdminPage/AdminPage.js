@@ -18,6 +18,7 @@ const AdminPage = ({
   menu,
   allOrders,
   deleteMenuItem,
+  deleteAllOrders,
   addMenuItem,
   getMenu,
   closeSnackbar,
@@ -49,7 +50,7 @@ const AdminPage = ({
 
           <BottomButtons
             setIsUploadingMenu={setIsUploadingMenu}
-            getAllOrders={getAllOrders}
+            deleteAllOrders={deleteAllOrders}
           />
         </div>
       </div>
@@ -72,6 +73,7 @@ const mapDispatchToProps = (dispatch) => ({
   closeSnackbar: () => dispatch(adminActions.closeSnackbar()),
   deleteMenuItem: (menuItemId) => () =>
     dispatch(adminActions.deleteMenuItem(menuItemId)),
+  deleteAllOrders: () => dispatch(adminActions.deleteAllOrders()),
 });
 
 export default connect(

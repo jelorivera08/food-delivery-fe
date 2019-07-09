@@ -11,6 +11,24 @@ const adminReducer = (
   action
 ) => {
   switch (action.type) {
+    case adminConstants.DELETE_ALL_ORDERS_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'all orders deleted.',
+        },
+      };
+    case adminConstants.DELETE_ALL_ORDERS_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'unable to delete orders.',
+        },
+      };
     case adminConstants.DELETE_MENU_ITEM_FAILURE:
       return {
         ...state,

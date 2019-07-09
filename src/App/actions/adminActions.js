@@ -65,3 +65,21 @@ export function deleteMenuItemFailure() {
     type: adminConstants.DELETE_MENU_ITEM_FAILURE,
   };
 }
+
+export function deleteAllOrders() {
+  return {
+    type: adminConstants.DELETE_ALL_ORDERS,
+  };
+}
+
+export function deleteAllOrdersSuccess() {
+  return {
+    type: adminConstants.DELETE_ALL_ORDERS_SUCCESS,
+  };
+}
+
+export function deleteAllOrdersFailure() {
+  return {
+    type: adminConstants.DELETE_ALL_ORDERS_FAILURE,
+  };
+}

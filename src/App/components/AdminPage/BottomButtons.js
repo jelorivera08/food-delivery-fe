@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BottomButtons = ({ getAllOrders, setIsUploadingMenu }) => {
+const BottomButtons = ({ deleteAllOrders, setIsUploadingMenu }) => {
   const handleEditMenuClick = () => {
     setIsUploadingMenu(true);
   };
@@ -9,8 +9,8 @@ const BottomButtons = ({ getAllOrders, setIsUploadingMenu }) => {
       <div onClick={handleEditMenuClick} className="admin-add-order-button">
         <span>Edit Menu</span>
       </div>
-      <div onClick={getAllOrders} className="admin-add-order-button">
-        <span>Refresh orders</span>
+      <div onClick={deleteAllOrders} className="admin-add-order-button">
+        <span>Clear orders</span>
       </div>
     </div>
   );

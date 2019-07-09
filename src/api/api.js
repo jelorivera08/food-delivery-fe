@@ -63,6 +63,12 @@ class api {
 
     return res;
   }
+
+  deleteAllOrders() {
+    let res = axios.delete(`${this.url}/order`);
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

@@ -34,10 +34,21 @@ function* deleteMenuItem(action) {
   }
 }
 
+function* deleteAllOrders() {
+  try {
+    yield api.deleteAllOrders();
+    yield put(adminActions.deleteAllOrdersSuccess());
+    yield put(adminActions.getAllOrders());
+  } catch (err) {
+    yield put(adminActions.deleteAllOrdersFailure());
+  }
+}
+
 function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_ORDERS, getAllOrders);
   yield takeEvery(adminConstants.ADD_MENU_ITEM, addMenuItem);
   yield takeEvery(adminConstants.DELETE_MENU_ITEM, deleteMenuItem);
+  yield takeEvery(adminConstants.DELETE_ALL_ORDERS, deleteAllOrders);
 }
 
 export default function* adminSaga() {
