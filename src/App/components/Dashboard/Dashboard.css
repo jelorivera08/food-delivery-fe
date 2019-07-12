@@ -319,3 +319,57 @@
   background-color: #fff;
   color: #0f3447;
 }
+
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .menu-container {
+    display: none;
+  }
+
+  .user-profile-container {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .dashboard-body {
+    min-height: none;
+  }
+
+  .user-profile {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+    border-radius: unset;
+  }
+
+  .user-profile-header-text {
+    padding: 25px 0px 0px 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .user-profile-subheader-text {
+    padding: 0px 0px 0px 12px;
+    font-size: 13px;
+  }
+
+  .order-list-container {
+    height: calc(100% - 200px);
+    margin: 10px 0 0 23px;
+    font-size: 15px;
+    overflow: auto;
+  }
+
+  .order-item-text {
+    width: 80%;
+  }
+
+  .balances-container {
+    margin: 5px 0px 0px 10px;
+    display: flex;
+  }
+
+  .balances {
+    width: 160px;
+  }
+}

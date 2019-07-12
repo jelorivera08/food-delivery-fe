@@ -19,9 +19,7 @@ const Balances = ({ setIsOrdering, debt, orders }) => {
   return (
     <div className="balances-container">
       <div className="balances">
-        <div className="outstanding-balance">
-          {`Your outstanding balace: ${debt} PHP`}
-        </div>
+        <div className="outstanding-balance">{`balace: ${debt} PHP`}</div>
         <div className="total-balance">{`Total: ${totalOrders()} PHP`}</div>
       </div>
       <div onClick={handleAddOrderClick} className="add-order-button">
