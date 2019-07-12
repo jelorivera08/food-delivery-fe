@@ -9,8 +9,17 @@ import Select from '@material-ui/core/Select';
 const QUANTITIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const useStyles = makeStyles((theme) => ({
-  formControl: {
+  formControlFood: {
     margin: theme.spacing(1),
+    minWidth: '200px',
+    [theme.breakpoints.between('xs', 'md')]: {
+      minWidth: '24%',
+    },
+  },
+  formControlQuantity: {
+    margin: theme.spacing(1),
+    minWidth: '120px',
+    [theme.breakpoints.between('xs', 'md')]: { minWidth: '21%' },
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -49,9 +58,10 @@ export default function OrderSelect({ menu, type, value, handleChange }) {
 
   return (
     <FormControl
-      style={{ minWidth: type === 'Food' ? '200px' : '120px' }}
       variant="outlined"
-      className={classes.formControl}
+      className={
+        type === 'Food' ? classes.formControlFood : classes.formControlQuantity
+      }
     >
       <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
         {type}

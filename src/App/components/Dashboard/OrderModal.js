@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from './OrderSelect';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+import './Dashboard.css';
 
 const initialOrderState = [
   {
@@ -122,7 +123,7 @@ const OrderModal = ({
                 <Select
                   value={order.quantity}
                   handleChange={handleQuantityChange(index)}
-                  type="Quantity"
+                  type="Qty"
                   menu={menu}
                 />
                 <div className="dashboard-modal-selects-total">
