@@ -9,6 +9,7 @@ import './Dashboard.css';
 import UserProfile from './UserProfile';
 import Menu from './Menu';
 import OrderModal from './OrderModal';
+import Footer from './Footer';
 
 const Dashboard = ({
   snackbar,
@@ -49,6 +50,7 @@ const Dashboard = ({
         />
         <Menu menu={menu} />
       </div>
+      <Footer />
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
 
       {isOrdering && (

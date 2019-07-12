@@ -320,6 +320,10 @@
   color: #0f3447;
 }
 
+.dashboard-footer {
+  display: none;
+}
+
 @media screen and (min-width: 300px) and (max-width: 1000px) {
   .menu-container {
     display: none;
@@ -328,10 +332,13 @@
   .user-profile-container {
     width: 100%;
     margin-right: 0;
+    height: 100%;
   }
 
   .dashboard-body {
-    min-height: none;
+    min-height: unset;
+    height: calc(100% - 46px);
+    display: flex;
   }
 
   .user-profile {
@@ -354,7 +361,7 @@
   }
 
   .order-list-container {
-    height: calc(100% - 185px);
+    height: calc(100% - 188px);
     margin: 10px 0 0 23px;
     font-size: 15px;
     overflow: auto;
@@ -456,5 +463,19 @@
 
   .dashboard-modal-selects-total-text {
     font-size: 15px;
+  }
+
+  .dashboard-footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #e6ecf0;
+    display: flex;
+    width: 100%;
+    height: 35px;
+    font-family: Lobster;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
   }
 }
