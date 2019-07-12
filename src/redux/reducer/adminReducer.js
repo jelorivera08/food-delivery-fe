@@ -7,10 +7,16 @@ const adminReducer = (
       open: false,
       message: '',
     },
+    users: [],
   },
   action
 ) => {
   switch (action.type) {
+    case adminConstants.GET_ALL_USERS_SUCCESS:
+      return {
+        ...state,
+        users: action.users,
+      };
     case adminConstants.DELETE_ALL_ORDERS_SUCCESS:
       return {
         ...state,
@@ -75,7 +81,15 @@ const adminReducer = (
         },
       };
     case adminConstants.GET_ALL_ORDERS_SUCCESS:
-      return { ...state, allOrders: action.payload };
+      return {
+        ...state,
+        allOrders: action.payload,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Orders refreshed.',
+        },
+      };
     case adminConstants.GET_ALL_ORDERS_FAILURE:
       return {
         ...state,

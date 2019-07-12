@@ -69,6 +69,12 @@ class api {
 
     return res;
   }
+
+  getAllUsers() {
+    let res = axios.get(`${this.url}/user`);
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

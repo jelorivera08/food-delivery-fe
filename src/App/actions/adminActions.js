@@ -83,3 +83,16 @@ export function deleteAllOrdersFailure() {
     type: adminConstants.DELETE_ALL_ORDERS_FAILURE,
   };
 }
+
+export function getAllUsers() {
+  return {
+    type: adminConstants.GET_ALL_USERS,
+  };
+}
+
+export function getAllUsersSuccess(users) {
+  return {
+    type: adminConstants.GET_ALL_USERS_SUCCESS,
+    users,
+  };
+}

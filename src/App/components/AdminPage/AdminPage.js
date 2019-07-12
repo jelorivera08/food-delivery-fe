@@ -22,11 +22,14 @@ const AdminPage = ({
   addMenuItem,
   getMenu,
   closeSnackbar,
+  users,
+  getAllUsers,
 }) => {
   const [isUploadingMenu, setIsUploadingMenu] = useState(false);
 
   useEffect(() => {
     getAllOrders();
+    getAllUsers();
   }, []);
 
   return (
@@ -46,9 +49,10 @@ const AdminPage = ({
           <div className="admin-dashboard-header">
             Current orders are as follows.
           </div>
-          <Orders allOrders={allOrders} />
+          <Orders users={users} allOrders={allOrders} />
 
           <BottomButtons
+            getAllOrders={getAllOrders}
             setIsUploadingMenu={setIsUploadingMenu}
             deleteAllOrders={deleteAllOrders}
           />
@@ -63,6 +67,7 @@ const mapStateToProps = (state) => ({
   allOrders: state.admin.allOrders,
   menu: state.dashboard.menu,
   snackbar: state.admin.snackbar,
+  users: state.admin.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -74,6 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
   deleteMenuItem: (menuItemId) => () =>
     dispatch(adminActions.deleteMenuItem(menuItemId)),
   deleteAllOrders: () => dispatch(adminActions.deleteAllOrders()),
+  getAllUsers: () => dispatch(adminActions.getAllUsers()),
 });
 
 export default connect(

@@ -44,11 +44,19 @@ function* deleteAllOrders() {
   }
 }
 
+function* getAllUsers() {
+  try {
+    let res = yield api.getAllUsers();
+    yield put(adminActions.getAllUsersSuccess(res.data));
+  } catch (err) {}
+}
+
 function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_ORDERS, getAllOrders);
   yield takeEvery(adminConstants.ADD_MENU_ITEM, addMenuItem);
   yield takeEvery(adminConstants.DELETE_MENU_ITEM, deleteMenuItem);
   yield takeEvery(adminConstants.DELETE_ALL_ORDERS, deleteAllOrders);
+  yield takeEvery(adminConstants.GET_ALL_USERS, getAllUsers);
 }
 
 export default function* adminSaga() {

@@ -6,7 +6,7 @@
 }
 
 .admin-dashboard-container {
-  width: 400px;
+  width: 450px;
   height: 600px;
   background-color: #fff;
   border-radius: 20px;
@@ -31,17 +31,32 @@
 }
 
 .order-from {
-  width: 40%;
+  width: 20%;
   display: flex;
   align-items: center;
 }
 
 .orders-container {
-  width: 60%;
+  width: 40%;
+}
+
+.orders-price {
+  width: 40%;
 }
 
 .order-unit {
   padding: 2px;
+}
+
+.orders-price-row {
+  display: flex;
+}
+
+.orders-price-label {
+  width: 60%;
+}
+
+.orders-price-value {
 }
 
 .dashboard-modal-container {
@@ -90,14 +105,15 @@
   background-color: #0f3447;
   color: #fff;
   border: 1px solid black;
-  width: 140px;
+  width: 100px;
   border-radius: 20px;
   height: 40px;
+  font-size: 12px;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: RUbik;
+  font-family: Rubik;
   cursor: pointer;
 }
 
