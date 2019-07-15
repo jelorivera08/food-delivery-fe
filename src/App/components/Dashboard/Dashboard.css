@@ -374,6 +374,7 @@
   .balances-container {
     margin: 5px 0px 0px 10px;
     display: flex;
+    justify-content: space-between;
   }
 
   .balances {
@@ -477,5 +478,20 @@
     align-items: center;
     font-size: 25px;
     cursor: pointer;
+  }
+
+  .add-order-button {
+    margin: 0px 10px 0px 0px;
+  }
+
+  .order-item {
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .order-item-icon {
+    cursor: pointer;
+    margin-right: 20px;
   }
 }

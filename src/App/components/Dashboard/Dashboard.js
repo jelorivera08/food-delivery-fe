@@ -26,11 +26,21 @@ const Dashboard = ({
   orders,
 }) => {
   const [isOrdering, setIsOrdering] = useState(false);
+  const [showMenuWhenMobile, setShowMenuWhenMobile] = useState(false);
 
   useEffect(() => {
     getOrders(username);
     getMenu();
+    watchResize();
   }, []);
+
+  const watchResize = () => {
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1000) {
+        setShowMenuWhenMobile(false);
+      }
+    });
+  };
 
   const handleDeleteOrder = (orderId) => {
     deleteOrder(orderId, username);
@@ -48,9 +58,12 @@ const Dashboard = ({
           debt={debt}
           deleteOrder={handleDeleteOrder}
         />
-        <Menu menu={menu} />
+        <Menu showMenuWhenMobile={showMenuWhenMobile} menu={menu} />
       </div>
-      <Footer />
+      <Footer
+        showMenuWhenMobile={showMenuWhenMobile}
+        setShowMenuWhenMobile={setShowMenuWhenMobile}
+      />
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
 
       {isOrdering && (

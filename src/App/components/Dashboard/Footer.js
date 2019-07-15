@@ -1,7 +1,15 @@
 import React from 'react';
 
-const Footer = () => {
-  return <div className="dashboard-footer">Show Menu. </div>;
+const Footer = ({ setShowMenuWhenMobile, showMenuWhenMobile }) => {
+  const handleClick = () => {
+    setShowMenuWhenMobile(!showMenuWhenMobile);
+  };
+
+  return (
+    <div className="dashboard-footer" onClick={handleClick}>
+      {showMenuWhenMobile ? 'Hide Menu.' : 'Show Menu.'}
+    </div>
+  );
 };
 
 export default Footer;

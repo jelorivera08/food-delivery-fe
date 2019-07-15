@@ -1,9 +1,13 @@
 import React from 'react';
 
-const UserProfile = ({ menu }) => {
+const UserProfile = ({ showMenuWhenMobile, menu }) => {
   return (
-    <div className="menu-container">
-      <div className="menu">
+    <div
+      className={
+        showMenuWhenMobile ? 'dashboard-modal-container' : 'menu-container'
+      }
+    >
+      <div className={showMenuWhenMobile ? 'dashboard-modal-content' : 'menu'}>
         <div className="menu-header">
           <span className="menu-header-text">{`Today's menu. 😋`}</span>
         </div>
