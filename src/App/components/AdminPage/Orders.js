@@ -1,74 +1,28 @@
 import React from 'react';
 
 const Orders = ({ users, allOrders }) => {
-  const formatAllOrders = () => {
-    const uniformOrders = [];
-    allOrders.forEach((order) => {
-      if (
-        uniformOrders.filter((uOrder) => uOrder.username === order.username)
-          .length > 0
-      ) {
-        uniformOrders.forEach((val, index) => {
-          if (val.username === order.username) {
-            uniformOrders[index].orders.push({
-              name: order.name,
-              quantity: order.quantity,
-              price: order.price,
-              _id: order._id,
-            });
-          }
-        });
-      } else {
-        uniformOrders.push({
-          username: order.username,
-          orders: [
-            {
-              name: order.name,
-              quantity: order.quantity,
-              price: order.price,
-              _id: order._id,
-            },
-          ],
-        });
+  const getCurrentUser = (order) => {
+    let currentUser = '';
+    users.forEach((user) => {
+      if (user.username === order.username) {
+        currentUser = user;
       }
     });
 
-    let uniformOrdersWithUsers = [];
-
-    uniformOrders.forEach((uniformOrder) => {
-      users.forEach((user) => {
-        if (user.username === uniformOrder.username) {
-          let orderTotal = 0;
-          uniformOrder.orders.forEach((order) => {
-            orderTotal += order.price * order.quantity;
-          });
-          uniformOrdersWithUsers = [
-            ...uniformOrdersWithUsers,
-            {
-              ...uniformOrder,
-              debt: user.debt,
-              orderTotal,
-            },
-          ];
-        }
-      });
-    });
-
-    return uniformOrdersWithUsers;
+    return currentUser;
   };
-
-  const formattedOrders = formatAllOrders();
-
   return (
     <div className="all-orders-container">
-      {formattedOrders.map((formattedOrder) => {
+      {allOrders.map((order) => {
+        let currentUser = getCurrentUser(order);
+
         return (
-          <div key={formattedOrder.username} className="order-container">
-            <div className="order-from">{formattedOrder.username}</div>
+          <div key={order.username} className="order-container">
+            <div className="order-from">{order.username}</div>
             <div className="orders-container">
-              {formattedOrder.orders.map((order) => {
+              {order.orders.map((order) => {
                 return (
-                  <div key={order._id} className="order-unit">
+                  <div key={order.orderId} className="order-unit">
                     {`${order.quantity} ${order.name}`}
                   </div>
                 );
@@ -77,20 +31,16 @@ const Orders = ({ users, allOrders }) => {
             <div className="orders-price">
               <div className="orders-price-row">
                 <div className="orders-price-label">debt:</div>
-                <div className="orders-price-value">
-                  ₱ {formattedOrder.debt}
-                </div>
+                <div className="orders-price-value">₱ {currentUser.debt}</div>
               </div>
               <div className="orders-price-row">
                 <div className="orders-price-label">price:</div>
-                <div className="orders-price-value">
-                  ₱ {formattedOrder.orderTotal}
-                </div>
+                <div className="orders-price-value">₱ {order.orderTotal}</div>
               </div>
               <div className="orders-price-row">
                 <div className="orders-price-label"> total:</div>
                 <div className="orders-price-value">
-                  ₱ {formattedOrder.debt + formattedOrder.orderTotal}
+                  ₱ {currentUser.debt + order.orderTotal}
                 </div>
               </div>
             </div>

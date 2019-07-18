@@ -36,7 +36,7 @@ const OrderList = ({ setIsOrdering, deleteOrder, userOrderDetails }) => {
 
       {userOrderDetails.orders.map((order, index) => {
         return (
-          <div key={order.name} className="order-item">
+          <div key={order.orderId} className="order-item">
             <div className="order-item-text">
               {`• ${order.quantity} order of ${order.name} for ${order.price *
                 order.quantity} PHP`}
