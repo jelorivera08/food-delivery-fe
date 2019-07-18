@@ -3,7 +3,10 @@ import * as dashboardConstants from '../../App/constants/dashboardConstants';
 
 const dashboardReducer = (
   state = {
-    orders: {},
+    renderDashboard: false,
+    orders: {
+      orders: [],
+    },
     username: '',
     menu: [],
     debt: 0,
@@ -99,6 +102,7 @@ const dashboardReducer = (
       return {
         ...state,
         orders: action.payload,
+        renderDashboard: true,
       };
     case dashboardConstants.PUT_ORDERS_FAILURE:
       return {

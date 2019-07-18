@@ -34,9 +34,9 @@ class api {
     return res;
   }
 
-  deleteOrder(payload) {
+  deleteOrder(orderId, index) {
     let res = axios.delete(`${this.url}/order`, {
-      data: { id: payload },
+      data: { id: orderId, index },
     });
     return res;
   }

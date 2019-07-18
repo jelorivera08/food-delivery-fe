@@ -7,7 +7,7 @@ const UserProfile = ({
   deleteOrder,
   setIsOrdering,
   username,
-  orders,
+  userOrderDetails,
   debt,
 }) => {
   return (
@@ -28,10 +28,14 @@ const UserProfile = ({
         <OrderList
           setIsOrdering={setIsOrdering}
           deleteOrder={deleteOrder}
-          orders={orders}
+          userOrderDetails={userOrderDetails}
         />
 
-        <Balances setIsOrdering={setIsOrdering} debt={debt} orders={orders} />
+        <Balances
+          setIsOrdering={setIsOrdering}
+          debt={debt}
+          userOrderDetails={userOrderDetails}
+        />
       </div>
     </div>
   );

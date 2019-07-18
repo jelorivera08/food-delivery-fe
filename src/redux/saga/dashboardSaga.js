@@ -33,7 +33,7 @@ function* putOrders(action) {
 
 function* deleteOrder(action) {
   try {
-    yield api.deleteOrder(action.payload.orderId);
+    yield api.deleteOrder(action.payload.orderId, action.payload.index);
     yield put(dashboardActions.getOrders(action.payload.username));
     yield put(dashboardActions.deleteOrderSuccess());
   } catch (err) {

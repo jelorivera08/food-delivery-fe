@@ -64,10 +64,10 @@ export function incompleteOrders() {
   };
 }
 
-export function deleteOrder(orderId, username) {
+export function deleteOrder(orderId, index, username) {
   return {
     type: dashboardConstants.DELETE_ORDER,
-    payload: { orderId, username },
+    payload: { orderId, index, username },
   };
 }
 

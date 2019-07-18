@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Balances = ({ setIsOrdering, debt, orders }) => {
+const Balances = ({ setIsOrdering, debt, userOrderDetails }) => {
   const totalOrders = () => {
     let total = 0;
 
-    orders.forEach((order) => {
+    userOrderDetails.orders.forEach((order) => {
       total += order.price * order.quantity;
     });
 

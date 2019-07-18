@@ -1,9 +1,9 @@
 import React from 'react';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
-  const handleDeleteClick = (id) => () => {
-    deleteOrder(id);
+const OrderList = ({ setIsOrdering, deleteOrder, userOrderDetails }) => {
+  const handleDeleteClick = (id, index) => () => {
+    deleteOrder(id, index);
   };
 
   const handleAddOrder = () => {
@@ -26,7 +26,7 @@ const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
 
   return (
     <div className="order-list-container">
-      {orders.length <= 0 && (
+      {userOrderDetails.orders.length <= 0 && (
         <div className="order-item-none">
           <div onClick={handleAddOrder} className="order-item-text-none">
             No orders yet. Add one?
@@ -34,9 +34,9 @@ const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
         </div>
       )}
 
-      {orders.map((order) => {
+      {userOrderDetails.orders.map((order, index) => {
         return (
-          <div key={order._id} className="order-item">
+          <div key={order.name} className="order-item">
             <div className="order-item-text">
               {`• ${order.quantity} order of ${order.name} for ${order.price *
                 order.quantity} PHP`}
@@ -44,7 +44,7 @@ const OrderList = ({ setIsOrdering, deleteOrder, orders }) => {
             {!isCutoff && (
               <div className="order-item-icon">
                 <DeleteForeverOutlinedIcon
-                  onClick={handleDeleteClick(order._id)}
+                  onClick={handleDeleteClick(userOrderDetails._id, index)}
                 />
               </div>
             )}

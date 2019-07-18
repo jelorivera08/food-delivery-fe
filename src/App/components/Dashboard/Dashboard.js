@@ -20,10 +20,11 @@ const Dashboard = ({
   debt,
   getOrders,
   putOrders,
+  renderDashboard,
   getMenu,
   incompleteOrders,
   deleteOrder,
-  orders,
+  userOrderDetails,
 }) => {
   const [isOrdering, setIsOrdering] = useState(false);
   const [showMenuWhenMobile, setShowMenuWhenMobile] = useState(false);
@@ -42,9 +43,11 @@ const Dashboard = ({
     });
   };
 
-  const handleDeleteOrder = (orderId) => {
-    deleteOrder(orderId, username);
+  const handleDeleteOrder = (orderId, index) => {
+    deleteOrder(orderId, index, username);
   };
+
+  if (!renderDashboard) return null;
 
   return (
     <div className="dashboard">
@@ -52,7 +55,7 @@ const Dashboard = ({
       <div className="dashboard-body">
         <UserProfile
           setIsOrdering={setIsOrdering}
-          orders={orders}
+          userOrderDetails={userOrderDetails}
           username={username}
           getOrders={getOrders}
           debt={debt}
@@ -83,9 +86,10 @@ const Dashboard = ({
 const mapStateToProps = (state) => ({
   snackbar: state.dashboard.snackbar,
   debt: state.dashboard.debt,
-  orders: state.dashboard.orders,
+  userOrderDetails: state.dashboard.orders,
   menu: state.dashboard.menu,
   username: state.dashboard.username,
+  renderDashboard: state.dashboard.renderDashboard,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -96,8 +100,8 @@ const mapDispatchToProps = (dispatch) => ({
   putOrders: (orders, username) =>
     dispatch(dashboardActions.putOrders(orders, username)),
   incompleteOrders: () => dispatch(dashboardActions.incompleteOrders()),
-  deleteOrder: (orderId, username) =>
-    dispatch(dashboardActions.deleteOrder(orderId, username)),
+  deleteOrder: (orderId, index, username) =>
+    dispatch(dashboardActions.deleteOrder(orderId, index, username)),
 });
 
 export default connect(
