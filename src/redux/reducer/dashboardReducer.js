@@ -3,7 +3,7 @@ import * as dashboardConstants from '../../App/constants/dashboardConstants';
 
 const dashboardReducer = (
   state = {
-    orders: [],
+    orders: {},
     username: '',
     menu: [],
     debt: 0,

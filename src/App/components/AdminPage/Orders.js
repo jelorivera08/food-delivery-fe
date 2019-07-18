@@ -5,12 +5,11 @@ const Orders = ({ users, allOrders }) => {
     const uniformOrders = [];
     allOrders.forEach((order) => {
       if (
-        uniformOrders.filter(
-          (uOrder) => uOrder.orderFromUser === order.orderFromUser
-        ).length > 0
+        uniformOrders.filter((uOrder) => uOrder.username === order.username)
+          .length > 0
       ) {
         uniformOrders.forEach((val, index) => {
-          if (val.orderFromUser === order.orderFromUser) {
+          if (val.username === order.username) {
             uniformOrders[index].orders.push({
               name: order.name,
               quantity: order.quantity,
@@ -21,7 +20,7 @@ const Orders = ({ users, allOrders }) => {
         });
       } else {
         uniformOrders.push({
-          orderFromUser: order.orderFromUser,
+          username: order.username,
           orders: [
             {
               name: order.name,
@@ -38,7 +37,7 @@ const Orders = ({ users, allOrders }) => {
 
     uniformOrders.forEach((uniformOrder) => {
       users.forEach((user) => {
-        if (user.username === uniformOrder.orderFromUser) {
+        if (user.username === uniformOrder.username) {
           let orderTotal = 0;
           uniformOrder.orders.forEach((order) => {
             orderTotal += order.price * order.quantity;
@@ -60,14 +59,12 @@ const Orders = ({ users, allOrders }) => {
 
   const formattedOrders = formatAllOrders();
 
-  console.log();
-
   return (
     <div className="all-orders-container">
       {formattedOrders.map((formattedOrder) => {
         return (
-          <div key={formattedOrder.orderFromUser} className="order-container">
-            <div className="order-from">{formattedOrder.orderFromUser}</div>
+          <div key={formattedOrder.username} className="order-container">
+            <div className="order-from">{formattedOrder.username}</div>
             <div className="orders-container">
               {formattedOrder.orders.map((order) => {
                 return (
@@ -85,7 +82,7 @@ const Orders = ({ users, allOrders }) => {
                 </div>
               </div>
               <div className="orders-price-row">
-                <div className="orders-price-label">order price:</div>
+                <div className="orders-price-label">price:</div>
                 <div className="orders-price-value">
                   ₱ {formattedOrder.orderTotal}
                 </div>

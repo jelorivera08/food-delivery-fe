@@ -5,7 +5,7 @@ const Header = ({ logout }) => {
   return (
     <div className="header">
       <div className="header-text-left">
-        <span className="header-text-left-unit">Kainan na.</span>
+        <span className="header-text-left-unit">Kain na.</span>
       </div>
 
       <div className="header-text-right">

@@ -46,9 +46,7 @@ const AdminPage = ({
       <Header logout={logout} />
       <div className="admin-dashboard">
         <div className="admin-dashboard-container">
-          <div className="admin-dashboard-header">
-            Current orders are as follows.
-          </div>
+          <div className="admin-dashboard-header">Current orders</div>
           <Orders users={users} allOrders={allOrders} />
 
           <BottomButtons
