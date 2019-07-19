@@ -24,6 +24,11 @@
   padding: 25px 0 10px 25px;
   display: flex;
   border-bottom: 1px solid gray;
+  cursor: pointer;
+}
+
+.order-container:hover {
+  background-color: #f3f3f3;
 }
 
 .all-orders-container {
@@ -242,4 +247,84 @@
     cursor: pointer;
     padding-right: 15px;
   }
+
+  .dashboard-modal-header-text {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .dashboard-modal-header {
+    height: 45px;
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+    align-items: center;
+  }
+
+  .payment-modal-pay-order {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .payment-modal-pay-order-total {
+    text-align: center;
+    position: relative;
+    width: 25%;
+  }
+
+  .payment-modal-pay-order-total-title {
+    font-size: 28px;
+  }
+
+  .payment-modal-pay-order-total-subtitle {
+    position: absolute;
+    font-size: 12px;
+    width: 64px;
+    top: 29px;
+    right: 14px;
+    color: gray;
+  }
+
+  .payment-modal-content {
+    padding: 15px 0px 15px 15px;
+    border-bottom: 1px solid black;
+  }
+
+  .payment-modal-pay-buttons {
+    text-align: center;
+    width: 30%;
+  }
+
+  .payment-modal-pay-button {
+    font-size: 13px;
+    height: 30px;
+    width: 80px;
+    background-color: #0f3447;
+    border-radius: 15px;
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .payment-modal-pay-container-input {
+    position: relative;
+    width: 30%;
+    min-height: 68px;
+  }
+
+  .payment-modal-pay-input {
+    height: 15px;
+    width: 90%;
+    border: none;
+    padding-bottom: 3px;
+    font-size: 17px;
+    border-bottom: 1px solid black;
+    outline: none;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  
 }

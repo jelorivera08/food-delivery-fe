@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PaymentModal from './PaymentModal';
 
 const Orders = ({ users, allOrders }) => {
+  const [isPaying, setIsPaying] = useState({
+    isOpen: false,
+    orderId: '',
+    orderTotal: 0,
+  });
+
   const getCurrentUser = (order) => {
     let currentUser = '';
     users.forEach((user) => {
@@ -11,13 +18,26 @@ const Orders = ({ users, allOrders }) => {
 
     return currentUser;
   };
+
+  const handleOrderContainerClick = (orderDetails) => () => {
+    setIsPaying({
+      isOpen: !isPaying.isOpen,
+      orderId: orderDetails._id,
+      orderTotal: orderDetails.orderTotal,
+    });
+  };
+
   return (
     <div className="all-orders-container">
       {allOrders.map((order) => {
         let currentUser = getCurrentUser(order);
 
         return (
-          <div key={order.username} className="order-container">
+          <div
+            onClick={handleOrderContainerClick(order)}
+            key={order._id}
+            className="order-container"
+          >
             <div className="order-from">{order.username}</div>
             <div className="orders-container">
               {order.orders.map((order) => {
@@ -47,6 +67,11 @@ const Orders = ({ users, allOrders }) => {
           </div>
         );
       })}
+      <PaymentModal
+        orderId={isPaying.orderId}
+        isPaying={isPaying.isOpen}
+        orderTotal={isPaying.orderTotal}
+      />
     </div>
   );
 };

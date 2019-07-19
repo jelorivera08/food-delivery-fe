@@ -8,7 +8,6 @@ const initialOrderState = [
     name: '',
     quantity: '',
     price: '',
-    total: 0,
   },
 ];
 
