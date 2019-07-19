@@ -75,6 +75,15 @@ class api {
 
     return res;
   }
+
+  payDebt(username, paid) {
+    let res = axios.post(`${this.url}/user/pay-debt`, {
+      username,
+      paid,
+    });
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

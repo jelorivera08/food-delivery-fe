@@ -17,6 +17,7 @@ const AdminPage = ({
   getAllOrders,
   menu,
   allOrders,
+  payDebt,
   deleteMenuItem,
   deleteAllOrders,
   addMenuItem,
@@ -47,7 +48,7 @@ const AdminPage = ({
       <div className="admin-dashboard">
         <div className="admin-dashboard-container">
           <div className="admin-dashboard-header">Current orders</div>
-          <Orders users={users} allOrders={allOrders} />
+          <Orders payDebt={payDebt} users={users} allOrders={allOrders} />
 
           <BottomButtons
             getAllOrders={getAllOrders}
@@ -78,6 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(adminActions.deleteMenuItem(menuItemId)),
   deleteAllOrders: () => dispatch(adminActions.deleteAllOrders()),
   getAllUsers: () => dispatch(adminActions.getAllUsers()),
+  payDebt: (username, paid) => dispatch(adminActions.payDebt(username, paid)),
 });
 
 export default connect(

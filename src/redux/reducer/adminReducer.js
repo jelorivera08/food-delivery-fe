@@ -99,6 +99,34 @@ const adminReducer = (
           message: 'Unable to get reducers.',
         },
       };
+    case adminConstants.PAY_DEBT_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'debt successfuly paid.',
+        },
+      };
+    case adminConstants.PAY_DEBT_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'unable to pay debt.',
+        },
+      };
+    case adminConstants.GET_ALL_USERS_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'unable to get all users.',
+        },
+      };
+
     default:
       return state;
   }

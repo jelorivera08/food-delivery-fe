@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import PaymentModal from './PaymentModal';
 
-const Orders = ({ users, allOrders }) => {
+const Orders = ({ users, allOrders, payDebt }) => {
   const [isPaying, setIsPaying] = useState({
     isOpen: false,
     orderId: '',
     orderTotal: 0,
+    userDebt: 0,
+    username: '',
   });
+
+  const [debtToBePaid, setDebtToBePaid] = useState('');
 
   const getCurrentUser = (order) => {
     let currentUser = '';
@@ -19,12 +23,28 @@ const Orders = ({ users, allOrders }) => {
     return currentUser;
   };
 
-  const handleOrderContainerClick = (orderDetails) => () => {
+  const handleOrderContainerClick = (orderDetails, userDetails) => () => {
     setIsPaying({
       isOpen: !isPaying.isOpen,
       orderId: orderDetails._id,
       orderTotal: orderDetails.orderTotal,
+      userDebt: userDetails.debt,
+      username: userDetails.username,
     });
+  };
+
+  const handlePaymentModalClose = () => {
+    setIsPaying({
+      isOpen: false,
+      orderId: '',
+      orderTotal: 0,
+      userDebt: 0,
+      username: '',
+    });
+  };
+
+  const handlePayDebt = () => {
+    payDebt(isPaying.username, debtToBePaid);
   };
 
   return (
@@ -34,7 +54,7 @@ const Orders = ({ users, allOrders }) => {
 
         return (
           <div
-            onClick={handleOrderContainerClick(order)}
+            onClick={handleOrderContainerClick(order, currentUser)}
             key={order._id}
             className="order-container"
           >
@@ -68,9 +88,15 @@ const Orders = ({ users, allOrders }) => {
         );
       })}
       <PaymentModal
+        setDebtToBePaid={setDebtToBePaid}
+        debtToBePaid={debtToBePaid}
+        handlePayDebt={handlePayDebt}
+        handlePaymentModalClose={handlePaymentModalClose}
         orderId={isPaying.orderId}
         isPaying={isPaying.isOpen}
         orderTotal={isPaying.orderTotal}
+        userDebt={isPaying.userDebt}
+        username={isPaying.username}
       />
     </div>
   );

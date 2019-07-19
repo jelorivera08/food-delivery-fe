@@ -8,6 +8,7 @@ function* getAllOrders() {
   let res;
   try {
     res = yield api.getAllOrders();
+    yield put(adminActions.getAllUsers());
     yield put(adminActions.getAllOrdersSuccess(res.data));
   } catch (err) {
     yield put(adminActions.getAllOrdersFailure());
@@ -48,7 +49,21 @@ function* getAllUsers() {
   try {
     let res = yield api.getAllUsers();
     yield put(adminActions.getAllUsersSuccess(res.data));
-  } catch (err) {}
+  } catch (err) {
+    yield put(adminActions.getAllUsersFailure());
+  }
+}
+
+function* payDebt(action) {
+  try {
+    yield api.payDebt(action.username, action.paid);
+    yield put(adminActions.getAllUsers());
+    yield put(adminActions.getAllOrders());
+
+    yield put(adminActions.payDebtSuccess());
+  } catch (err) {
+    yield put(adminActions.payDebtFailure());
+  }
 }
 
 function* watchAdmin() {
@@ -57,6 +72,7 @@ function* watchAdmin() {
   yield takeEvery(adminConstants.DELETE_MENU_ITEM, deleteMenuItem);
   yield takeEvery(adminConstants.DELETE_ALL_ORDERS, deleteAllOrders);
   yield takeEvery(adminConstants.GET_ALL_USERS, getAllUsers);
+  yield takeEvery(adminConstants.PAY_DEBT, payDebt);
 }
 
 export default function* adminSaga() {

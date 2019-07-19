@@ -96,3 +96,29 @@ export function getAllUsersSuccess(users) {
     users,
   };
 }
+
+export function payDebt(username, paid) {
+  return {
+    type: adminConstants.PAY_DEBT,
+    username,
+    paid,
+  };
+}
+
+export function payDebtSuccess() {
+  return {
+    type: adminConstants.PAY_DEBT_SUCCESS,
+  };
+}
+
+export function payDebtFailure() {
+  return {
+    type: adminConstants.PAY_DEBT_FAILURE,
+  };
+}
+
+export function getAllUsersFailure() {
+  return {
+    type: adminConstants.GET_ALL_USERS_FAILURE,
+  };
+}

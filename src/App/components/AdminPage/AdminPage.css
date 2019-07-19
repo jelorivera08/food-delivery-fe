@@ -63,8 +63,6 @@
   width: 60%;
 }
 
-.orders-price-value {
-}
 
 .dashboard-modal-container {
   position: fixed;
@@ -257,14 +255,29 @@
   .dashboard-modal-header {
     height: 45px;
     display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid gainsboro;
     align-items: center;
+  }
+
+  .dashboard-modal-header-close {
+    margin-right: 15px;
+    cursor: pointer;
   }
 
   .payment-modal-pay-order {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 45px 0px 40px 15px;
+    border-bottom: 1px solid black;
+  }
+
+  .payment-modal-pay-debt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 45px 0px 40px 15px;
   }
 
   .payment-modal-pay-order-total {
@@ -284,11 +297,6 @@
     top: 29px;
     right: 14px;
     color: gray;
-  }
-
-  .payment-modal-content {
-    padding: 15px 0px 15px 15px;
-    border-bottom: 1px solid black;
   }
 
   .payment-modal-pay-buttons {
@@ -325,6 +333,4 @@
     position: absolute;
     bottom: 10px;
   }
-
-  
 }
