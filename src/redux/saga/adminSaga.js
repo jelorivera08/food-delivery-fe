@@ -66,6 +66,18 @@ function* payDebt(action) {
   }
 }
 
+function* transferToDebt(action) {
+  try {
+    yield api.transferToDebt(action.orderId);
+    yield put(adminActions.getAllUsers());
+    yield put(adminActions.getAllOrders());
+
+    yield put(adminActions.transferToDebtSuccess());
+  } catch (err) {
+    yield put(adminActions.apiCallFailure('unable to transfer to debt.'));
+  }
+}
+
 function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_ORDERS, getAllOrders);
   yield takeEvery(adminConstants.ADD_MENU_ITEM, addMenuItem);
@@ -73,6 +85,7 @@ function* watchAdmin() {
   yield takeEvery(adminConstants.DELETE_ALL_ORDERS, deleteAllOrders);
   yield takeEvery(adminConstants.GET_ALL_USERS, getAllUsers);
   yield takeEvery(adminConstants.PAY_DEBT, payDebt);
+  yield takeEvery(adminConstants.TRANSFER_TO_DEBT, transferToDebt);
 }
 
 export default function* adminSaga() {

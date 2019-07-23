@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
-const WelcomeRight = ({ login, signup }) => {
+const WelcomeRight = ({ login, signup, invalidCredentials }) => {
   const [showLogin, setShowLogin] = useState(true);
   const [credentials, setCredentials] = useState({
     username: '',
@@ -31,6 +31,19 @@ const WelcomeRight = ({ login, signup }) => {
     });
   };
 
+  const handleSignUpClick = (credentials) => () => {
+    if (
+      credentials.username.includes(' ') ||
+      credentials.password.includes(' ') ||
+      credentials.username.length <= 1 ||
+      credentials.password.length <= 1
+    ) {
+      return invalidCredentials();
+    }
+
+    signup(credentials);
+  };
+
   if (showLogin) {
     return (
       <Login
@@ -47,7 +60,7 @@ const WelcomeRight = ({ login, signup }) => {
         handlePasswordChange={handlePasswordChange}
         handleUsernameChange={handleUsernameChange}
         credentials={credentials}
-        handleSignupClick={signup}
+        handleSignupClick={handleSignUpClick}
         handleLoginClick={handleLoginClick}
       />
     );

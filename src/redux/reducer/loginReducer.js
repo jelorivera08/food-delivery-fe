@@ -51,7 +51,15 @@ const loginReducer = (
           message: 'Already a member? Sign in.',
         },
       };
-
+    case loginConstants.INVALID_CREDENTIALS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Username or password should not contain spaces.',
+        },
+      };
     default:
       return state;
   }

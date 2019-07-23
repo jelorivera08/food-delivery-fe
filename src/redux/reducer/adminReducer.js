@@ -127,6 +127,25 @@ const adminReducer = (
         },
       };
 
+    case adminConstants.TRANSFER_TO_DEBT_SUCCESS:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Successfuly transferred to debt.',
+        },
+      };
+
+    case adminConstants.ADMIN_API_CALL_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: action.message,
+        },
+      };
     default:
       return state;
   }

@@ -52,3 +52,9 @@ export function logout() {
     type: loginConstants.LOGOUT,
   };
 }
+
+export function invalidCredentials() {
+  return {
+    type: loginConstants.INVALID_CREDENTIALS,
+  };
+}

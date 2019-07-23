@@ -7,6 +7,7 @@ const PaymentModal = ({
   userDebt,
   username,
   handlePayDebt,
+  transferToDebt,
   debtToBePaid,
   orderId,
   setDebtToBePaid,
@@ -16,6 +17,11 @@ const PaymentModal = ({
     const handleDebtToBePaidChange = (e) => {
       setDebtToBePaid(e.target.value);
     };
+
+    const handleTransferToDebt = () => {
+      transferToDebt(orderId);
+    };
+
     return (
       <div className="dashboard-modal-container">
         <div className="dashboard-modal-content">
@@ -48,7 +54,12 @@ const PaymentModal = ({
               </div>
 
               <div className="payment-modal-pay-buttons">
-                <button className="payment-modal-pay-button">To Debt</button>
+                <button
+                  onClick={handleTransferToDebt}
+                  className="payment-modal-pay-button"
+                >
+                  To Debt
+                </button>
                 <button className="payment-modal-pay-button">Pay</button>
               </div>
             </div>

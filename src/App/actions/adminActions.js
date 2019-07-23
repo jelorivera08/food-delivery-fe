@@ -122,3 +122,22 @@ export function getAllUsersFailure() {
     type: adminConstants.GET_ALL_USERS_FAILURE,
   };
 }
+
+export function transferToDebt(orderId) {
+  return {
+    type: adminConstants.TRANSFER_TO_DEBT,
+    orderId,
+  };
+}
+
+export function transferToDebtSuccess() {
+  return {
+    type: adminConstants.TRANSFER_TO_DEBT_SUCCESS,
+  };
+}
+
+export function apiCallFailure(message) {
+  return {
+    type: adminConstants.ADMIN_API_CALL_FAILURE,
+  };
+}

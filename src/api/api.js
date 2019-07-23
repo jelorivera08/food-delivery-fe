@@ -84,6 +84,14 @@ class api {
 
     return res;
   }
+
+  transferToDebt(orderId) {
+    let res = axios.post(`${this.url}/order/transfer-to-debt`, {
+      id: orderId,
+    });
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

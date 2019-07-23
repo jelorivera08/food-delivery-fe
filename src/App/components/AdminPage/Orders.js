@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import PaymentModal from './PaymentModal';
 
-const Orders = ({ users, allOrders, payDebt }) => {
+const initialIsPayingState = {
+  isOpen: false,
+  orderId: '',
+  orderTotal: 0,
+  userDebt: 0,
+  username: '',
+};
+
+const Orders = ({ transferToDebt, users, allOrders, payDebt }) => {
   const [isPaying, setIsPaying] = useState({
     isOpen: false,
     orderId: '',
@@ -34,17 +42,13 @@ const Orders = ({ users, allOrders, payDebt }) => {
   };
 
   const handlePaymentModalClose = () => {
-    setIsPaying({
-      isOpen: false,
-      orderId: '',
-      orderTotal: 0,
-      userDebt: 0,
-      username: '',
-    });
+    setIsPaying(initialIsPayingState);
   };
 
   const handlePayDebt = () => {
     payDebt(isPaying.username, debtToBePaid);
+
+    setIsPaying(initialIsPayingState);
   };
 
   return (
@@ -88,6 +92,7 @@ const Orders = ({ users, allOrders, payDebt }) => {
         );
       })}
       <PaymentModal
+        transferToDebt={transferToDebt}
         setDebtToBePaid={setDebtToBePaid}
         debtToBePaid={debtToBePaid}
         handlePayDebt={handlePayDebt}

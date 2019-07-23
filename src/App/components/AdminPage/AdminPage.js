@@ -25,6 +25,7 @@ const AdminPage = ({
   closeSnackbar,
   users,
   getAllUsers,
+  transferToDebt,
 }) => {
   const [isUploadingMenu, setIsUploadingMenu] = useState(false);
 
@@ -48,7 +49,12 @@ const AdminPage = ({
       <div className="admin-dashboard">
         <div className="admin-dashboard-container">
           <div className="admin-dashboard-header">Current orders</div>
-          <Orders payDebt={payDebt} users={users} allOrders={allOrders} />
+          <Orders
+            payDebt={payDebt}
+            users={users}
+            allOrders={allOrders}
+            transferToDebt={transferToDebt}
+          />
 
           <BottomButtons
             getAllOrders={getAllOrders}
@@ -80,6 +86,7 @@ const mapDispatchToProps = (dispatch) => ({
   deleteAllOrders: () => dispatch(adminActions.deleteAllOrders()),
   getAllUsers: () => dispatch(adminActions.getAllUsers()),
   payDebt: (username, paid) => dispatch(adminActions.payDebt(username, paid)),
+  transferToDebt: (orderId) => dispatch(adminActions.transferToDebt(orderId)),
 });
 
 export default connect(

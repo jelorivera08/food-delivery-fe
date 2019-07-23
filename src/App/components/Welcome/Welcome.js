@@ -5,10 +5,20 @@ import './Welcome.css';
 import * as loginActions from '../../actions/loginActions';
 import Snackbar from '../Snackbar/Snackbar';
 
-const Welcome = ({ login, snackbar, closeSnackbar, signup }) => {
+const Welcome = ({
+  login,
+  snackbar,
+  closeSnackbar,
+  signup,
+  invalidCredentials,
+}) => {
   return (
     <div className="welcome">
-      <WelcomeRight login={login} signup={signup} />
+      <WelcomeRight
+        login={login}
+        signup={signup}
+        invalidCredentials={invalidCredentials}
+      />
 
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
     </div>
@@ -21,7 +31,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   login: (credentials) => () => dispatch(loginActions.login(credentials)),
-  signup: (credentials) => () => dispatch(loginActions.signup(credentials)),
+  signup: (credentials) => dispatch(loginActions.signup(credentials)),
+  invalidCredentials: () => dispatch(loginActions.invalidCredentials()),
   closeSnackbar: () => dispatch(loginActions.closeSnackbar()),
 });
 
