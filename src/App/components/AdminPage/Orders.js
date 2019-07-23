@@ -9,16 +9,12 @@ const initialIsPayingState = {
   username: '',
 };
 
-const Orders = ({ transferToDebt, users, allOrders, payDebt }) => {
-  const [isPaying, setIsPaying] = useState({
-    isOpen: false,
-    orderId: '',
-    orderTotal: 0,
-    userDebt: 0,
-    username: '',
-  });
+const Orders = ({ transferToDebt, users, allOrders, payDebt, payOrder }) => {
+  const [isPaying, setIsPaying] = useState(initialIsPayingState);
 
   const [debtToBePaid, setDebtToBePaid] = useState('');
+
+  const [priceToPay, setPriceToPay] = useState('');
 
   const getCurrentUser = (order) => {
     let currentUser = '';
@@ -29,6 +25,10 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt }) => {
     });
 
     return currentUser;
+  };
+
+  const handlePriceToPayChange = (e) => {
+    setPriceToPay(e.target.value);
   };
 
   const handleOrderContainerClick = (orderDetails, userDetails) => () => {
@@ -48,7 +48,28 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt }) => {
   const handlePayDebt = () => {
     payDebt(isPaying.username, debtToBePaid);
 
+    setDebtToBePaid('');
+    setPriceToPay('');
+
     setIsPaying(initialIsPayingState);
+  };
+
+  const handleTransferToDebt = (orderId) => () => {
+    transferToDebt(orderId);
+    setDebtToBePaid('');
+    setPriceToPay('');
+    setIsPaying(initialIsPayingState);
+  };
+
+  const handlePayOrder = (orderId, paid) => () => {
+    payOrder(orderId, Number(paid));
+    setDebtToBePaid('');
+    setPriceToPay('');
+    setIsPaying(initialIsPayingState);
+  };
+
+  const handleDebtToBePaidChange = (e) => {
+    setDebtToBePaid(e.target.value);
   };
 
   return (
@@ -92,8 +113,12 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt }) => {
         );
       })}
       <PaymentModal
+        handlePriceToPayChange={handlePriceToPayChange}
+        priceToPay={priceToPay}
+        handlePayOrder={handlePayOrder}
+        handleTransferToDebt={handleTransferToDebt}
         transferToDebt={transferToDebt}
-        setDebtToBePaid={setDebtToBePaid}
+        handleDebtToBePaidChange={handleDebtToBePaidChange}
         debtToBePaid={debtToBePaid}
         handlePayDebt={handlePayDebt}
         handlePaymentModalClose={handlePaymentModalClose}

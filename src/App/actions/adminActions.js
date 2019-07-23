@@ -139,5 +139,21 @@ export function transferToDebtSuccess() {
 export function apiCallFailure(message) {
   return {
     type: adminConstants.ADMIN_API_CALL_FAILURE,
+    message,
+  };
+}
+
+export function payOrder(orderId, paid) {
+  return {
+    type: adminConstants.PAY_ORDER,
+    orderId,
+    paid,
+  };
+}
+
+export function apiCallSuccess(message) {
+  return {
+    type: adminConstants.ADMIN_API_CALL_SUCCESS,
+    message,
   };
 }

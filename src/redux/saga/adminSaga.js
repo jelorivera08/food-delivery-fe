@@ -78,6 +78,16 @@ function* transferToDebt(action) {
   }
 }
 
+function* payOrder(action) {
+  try {
+    let res = yield api.payOrder(action.orderId, action.paid);
+
+    yield put(adminActions.apiCallSuccess(res.data.message));
+  } catch (err) {
+    yield put(adminActions.apiCallFailure('unable to pay for order.'));
+  }
+}
+
 function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_ORDERS, getAllOrders);
   yield takeEvery(adminConstants.ADD_MENU_ITEM, addMenuItem);
@@ -86,6 +96,7 @@ function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_USERS, getAllUsers);
   yield takeEvery(adminConstants.PAY_DEBT, payDebt);
   yield takeEvery(adminConstants.TRANSFER_TO_DEBT, transferToDebt);
+  yield takeEvery(adminConstants.PAY_ORDER, payOrder);
 }
 
 export default function* adminSaga() {

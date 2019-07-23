@@ -22,6 +22,7 @@ const AdminPage = ({
   deleteAllOrders,
   addMenuItem,
   getMenu,
+  payOrder,
   closeSnackbar,
   users,
   getAllUsers,
@@ -50,6 +51,7 @@ const AdminPage = ({
         <div className="admin-dashboard-container">
           <div className="admin-dashboard-header">Current orders</div>
           <Orders
+            payOrder={payOrder}
             payDebt={payDebt}
             users={users}
             allOrders={allOrders}
@@ -87,6 +89,7 @@ const mapDispatchToProps = (dispatch) => ({
   getAllUsers: () => dispatch(adminActions.getAllUsers()),
   payDebt: (username, paid) => dispatch(adminActions.payDebt(username, paid)),
   transferToDebt: (orderId) => dispatch(adminActions.transferToDebt(orderId)),
+  payOrder: (orderId, paid) => dispatch(adminActions.payOrder(orderId, paid)),
 });
 
 export default connect(

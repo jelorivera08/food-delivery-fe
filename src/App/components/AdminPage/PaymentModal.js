@@ -5,23 +5,17 @@ const PaymentModal = ({
   isPaying,
   handlePaymentModalClose,
   userDebt,
-  username,
   handlePayDebt,
-  transferToDebt,
+  priceToPay,
   debtToBePaid,
+  handlePriceToPayChange,
   orderId,
-  setDebtToBePaid,
+  handleDebtToBePaidChange,
   orderTotal,
+  handleTransferToDebt,
+  handlePayOrder,
 }) => {
   if (isPaying) {
-    const handleDebtToBePaidChange = (e) => {
-      setDebtToBePaid(e.target.value);
-    };
-
-    const handleTransferToDebt = () => {
-      transferToDebt(orderId);
-    };
-
     return (
       <div className="dashboard-modal-container">
         <div className="dashboard-modal-content">
@@ -48,6 +42,8 @@ const PaymentModal = ({
 
               <div className="payment-modal-pay-container-input">
                 <input
+                  onChange={handlePriceToPayChange}
+                  value={priceToPay}
                   placeholder="amount"
                   className="payment-modal-pay-input"
                 />
@@ -55,12 +51,17 @@ const PaymentModal = ({
 
               <div className="payment-modal-pay-buttons">
                 <button
-                  onClick={handleTransferToDebt}
+                  onClick={handleTransferToDebt(orderId)}
                   className="payment-modal-pay-button"
                 >
                   To Debt
                 </button>
-                <button className="payment-modal-pay-button">Pay</button>
+                <button
+                  onClick={handlePayOrder(orderId, priceToPay)}
+                  className="payment-modal-pay-button"
+                >
+                  Pay
+                </button>
               </div>
             </div>
 

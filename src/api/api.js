@@ -92,6 +92,15 @@ class api {
 
     return res;
   }
+
+  payOrder(orderId, paid) {
+    let res = axios.post(`${this.url}/order/pay`, {
+      id: orderId,
+      paid,
+    });
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

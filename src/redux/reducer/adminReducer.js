@@ -138,6 +138,7 @@ const adminReducer = (
       };
 
     case adminConstants.ADMIN_API_CALL_FAILURE:
+    case adminConstants.ADMIN_API_CALL_SUCCESS:
       return {
         ...state,
         snackbar: {
@@ -146,6 +147,7 @@ const adminReducer = (
           message: action.message,
         },
       };
+
     default:
       return state;
   }
