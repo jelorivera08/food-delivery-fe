@@ -14,6 +14,7 @@ const PaymentModal = ({
   orderTotal,
   handleTransferToDebt,
   handlePayOrder,
+  isPaid,
 }) => {
   if (isPaying) {
     return (
@@ -28,42 +29,43 @@ const PaymentModal = ({
               <img src={close} alt="close" />
             </div>
           </div>
-
           <div className="payment-modal-content">
-            <div className="payment-modal-pay-order">
-              <div className="payment-modal-pay-order-total">
-                <div className="payment-modal-pay-order-total-title">
-                  {`₱${orderTotal}`}
+            {!isPaid && (
+              <div className="payment-modal-pay-order">
+                <div className="payment-modal-pay-order-total">
+                  <div className="payment-modal-pay-order-total-title">
+                    {`₱${orderTotal}`}
+                  </div>
+                  <div className="payment-modal-pay-order-total-subtitle">
+                    Order price
+                  </div>
                 </div>
-                <div className="payment-modal-pay-order-total-subtitle">
-                  Order price
+
+                <div className="payment-modal-pay-container-input">
+                  <input
+                    onChange={handlePriceToPayChange}
+                    value={priceToPay}
+                    placeholder="amount"
+                    className="payment-modal-pay-input"
+                  />
+                </div>
+
+                <div className="payment-modal-pay-buttons">
+                  <button
+                    onClick={handleTransferToDebt(orderId)}
+                    className="payment-modal-pay-button"
+                  >
+                    To Debt
+                  </button>
+                  <button
+                    onClick={handlePayOrder(orderId, priceToPay)}
+                    className="payment-modal-pay-button"
+                  >
+                    Pay
+                  </button>
                 </div>
               </div>
-
-              <div className="payment-modal-pay-container-input">
-                <input
-                  onChange={handlePriceToPayChange}
-                  value={priceToPay}
-                  placeholder="amount"
-                  className="payment-modal-pay-input"
-                />
-              </div>
-
-              <div className="payment-modal-pay-buttons">
-                <button
-                  onClick={handleTransferToDebt(orderId)}
-                  className="payment-modal-pay-button"
-                >
-                  To Debt
-                </button>
-                <button
-                  onClick={handlePayOrder(orderId, priceToPay)}
-                  className="payment-modal-pay-button"
-                >
-                  Pay
-                </button>
-              </div>
-            </div>
+            )}
 
             <div className="payment-modal-pay-debt">
               <div className="payment-modal-pay-order-total">

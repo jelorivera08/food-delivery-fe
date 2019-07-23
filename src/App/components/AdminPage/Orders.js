@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import PaymentModal from './PaymentModal';
+import check from '../../icons/check.png';
 
 const initialIsPayingState = {
   isOpen: false,
   orderId: '',
   orderTotal: 0,
   userDebt: 0,
+  isPaid: false,
   username: '',
 };
 
@@ -38,6 +40,7 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt, payOrder }) => {
       orderTotal: orderDetails.orderTotal,
       userDebt: userDetails.debt,
       username: userDetails.username,
+      isPaid: orderDetails.isPaid,
     });
   };
 
@@ -94,21 +97,23 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt, payOrder }) => {
               })}
             </div>
             <div className="orders-price">
-              <div className="orders-price-row">
-                <div className="orders-price-label">debt:</div>
-                <div className="orders-price-value">₱ {currentUser.debt}</div>
-              </div>
-              <div className="orders-price-row">
-                <div className="orders-price-label">price:</div>
-                <div className="orders-price-value">₱ {order.orderTotal}</div>
-              </div>
-              <div className="orders-price-row">
-                <div className="orders-price-label"> total:</div>
-                <div className="orders-price-value">
-                  ₱ {currentUser.debt + order.orderTotal}
-                </div>
-              </div>
+              <div className="orders-price-label-debt">debt</div>
+              <div className="orders-price-value-debt">₱{currentUser.debt}</div>
+              {!order.isPaid && (
+                <React.Fragment>
+                  <div className="orders-price-label-price">price</div>
+                  <div className="orders-price-value-price">
+                    ₱{order.orderTotal}
+                  </div>
+                </React.Fragment>
+              )}
             </div>
+            {order.isPaid && (
+              <div className="paid-container">
+                <img className="paid-container-check" src={check} alt="check" />
+                <div className="paid-container-label">paid</div>
+              </div>
+            )}
           </div>
         );
       })}
@@ -127,6 +132,7 @@ const Orders = ({ transferToDebt, users, allOrders, payDebt, payOrder }) => {
         orderTotal={isPaying.orderTotal}
         userDebt={isPaying.userDebt}
         username={isPaying.username}
+        isPaid={isPaying.isPaid}
       />
     </div>
   );

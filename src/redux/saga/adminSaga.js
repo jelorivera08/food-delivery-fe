@@ -81,6 +81,8 @@ function* transferToDebt(action) {
 function* payOrder(action) {
   try {
     let res = yield api.payOrder(action.orderId, action.paid);
+    yield put(adminActions.getAllUsers());
+    yield put(adminActions.getAllOrders());
 
     yield put(adminActions.apiCallSuccess(res.data.message));
   } catch (err) {

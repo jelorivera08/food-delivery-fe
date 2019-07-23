@@ -25,6 +25,7 @@
   display: flex;
   border-bottom: 1px solid gray;
   cursor: pointer;
+  position: relative;
 }
 
 .order-container:hover {
@@ -49,20 +50,44 @@
 
 .orders-price {
   width: 40%;
+  height: 40px;
+  position: relative;
 }
 
 .order-unit {
   padding: 2px;
 }
 
-.orders-price-row {
-  display: flex;
+.orders-price-label-debt {
+  position: absolute;
+  bottom: 6px;
+  font-size: 11px;
+  left: 17px;
+  color: gray;
 }
 
-.orders-price-label {
-  width: 60%;
+.orders-price-value-debt {
+  position: absolute;
+  font-size: 20px;
+  width: 56px;
+  text-align: center;
 }
 
+.orders-price-label-price {
+  position: absolute;
+  bottom: 6px;
+  right: 96px;
+  font-size: 11px;
+  color: gray;
+}
+
+.orders-price-value-price {
+  position: absolute;
+  font-size: 20px;
+  text-align: center;
+  width: 56px;
+  right: 81px;
+}
 
 .dashboard-modal-container {
   position: fixed;
@@ -214,6 +239,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.paid-container {
+  position: absolute;
+  right: 90px;
+  top: 22px;
+}
+
+.paid-container-check {
+  height: 25px;
+}
+
+.paid-container-label {
+  position: absolute;
+  right: 3px;
+  color: green;
+  top: 26px;
+  font-size: 11px;
 }
 
 @media screen and (min-width: 300px) and (max-width: 1000px) {
