@@ -34,7 +34,7 @@
 
 .all-orders-container {
   overflow: auto;
-  height: calc(100% - 120px);
+  height: calc(100% - 145px);
 }
 
 .order-from {
@@ -257,6 +257,42 @@
   color: green;
   top: 26px;
   font-size: 11px;
+}
+
+.admin-page-footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #e6ecf0;
+  display: flex;
+  width: 100%;
+  height: 35px;
+  font-family: Lobster;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 2px #ccc;
+}
+
+.admin-page-footer-customers {
+  width: 50%;
+  text-align: center;
+  height: 100%;
+}
+
+.admin-page-footer-orders {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid black;
+}
+
+.admin-page-footer-orders:hover {
+  background-color: #e4e4e4;
+}
+
+.admin-page-footer-customers:hover{
+  background-color: #e4e4e4;
 }
 
 @media screen and (min-width: 300px) and (max-width: 1000px) {

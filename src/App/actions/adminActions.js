@@ -66,24 +66,6 @@ export function deleteMenuItemFailure() {
   };
 }
 
-export function deleteAllOrders() {
-  return {
-    type: adminConstants.DELETE_ALL_ORDERS,
-  };
-}
-
-export function deleteAllOrdersSuccess() {
-  return {
-    type: adminConstants.DELETE_ALL_ORDERS_SUCCESS,
-  };
-}
-
-export function deleteAllOrdersFailure() {
-  return {
-    type: adminConstants.DELETE_ALL_ORDERS_FAILURE,
-  };
-}
-
 export function getAllUsers() {
   return {
     type: adminConstants.GET_ALL_USERS,

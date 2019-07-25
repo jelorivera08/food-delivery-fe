@@ -10,6 +10,7 @@ import * as dashboardActions from '../../actions/dashboardActions';
 import BottomButtons from './BottomButtons';
 import AdminMenuModal from './AdminMenuModal';
 import Snackbar from '../Snackbar/Snackbar';
+import Footer from './Footer';
 
 const AdminPage = ({
   snackbar,
@@ -61,10 +62,10 @@ const AdminPage = ({
           <BottomButtons
             getAllOrders={getAllOrders}
             setIsUploadingMenu={setIsUploadingMenu}
-            deleteAllOrders={deleteAllOrders}
           />
         </div>
       </div>
+      <Footer />
       <Snackbar {...snackbar} handleClose={closeSnackbar} />
     </div>
   );
@@ -85,7 +86,6 @@ const mapDispatchToProps = (dispatch) => ({
   closeSnackbar: () => dispatch(adminActions.closeSnackbar()),
   deleteMenuItem: (menuItemId) => () =>
     dispatch(adminActions.deleteMenuItem(menuItemId)),
-  deleteAllOrders: () => dispatch(adminActions.deleteAllOrders()),
   getAllUsers: () => dispatch(adminActions.getAllUsers()),
   payDebt: (username, paid) => dispatch(adminActions.payDebt(username, paid)),
   transferToDebt: (orderId) => dispatch(adminActions.transferToDebt(orderId)),

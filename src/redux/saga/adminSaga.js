@@ -35,16 +35,6 @@ function* deleteMenuItem(action) {
   }
 }
 
-function* deleteAllOrders() {
-  try {
-    yield api.deleteAllOrders();
-    yield put(adminActions.deleteAllOrdersSuccess());
-    yield put(adminActions.getAllOrders());
-  } catch (err) {
-    yield put(adminActions.deleteAllOrdersFailure());
-  }
-}
-
 function* getAllUsers() {
   try {
     let res = yield api.getAllUsers();
@@ -94,7 +84,6 @@ function* watchAdmin() {
   yield takeEvery(adminConstants.GET_ALL_ORDERS, getAllOrders);
   yield takeEvery(adminConstants.ADD_MENU_ITEM, addMenuItem);
   yield takeEvery(adminConstants.DELETE_MENU_ITEM, deleteMenuItem);
-  yield takeEvery(adminConstants.DELETE_ALL_ORDERS, deleteAllOrders);
   yield takeEvery(adminConstants.GET_ALL_USERS, getAllUsers);
   yield takeEvery(adminConstants.PAY_DEBT, payDebt);
   yield takeEvery(adminConstants.TRANSFER_TO_DEBT, transferToDebt);
