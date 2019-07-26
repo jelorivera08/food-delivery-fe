@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 46px);
+  height: calc(100% - 83px);
 }
 
 .admin-dashboard-container {
@@ -11,6 +11,7 @@
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 3px -1px 8px 2px #ccc;
+  overflow: auto;
 }
 
 .admin-dashboard-header {
@@ -34,7 +35,7 @@
 
 .all-orders-container {
   overflow: auto;
-  height: calc(100% - 145px);
+  height: calc(100% - 104px);
 }
 
 .order-from {
@@ -296,6 +297,111 @@
   background-color: #e4e4e4;
 }
 
+.customer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+}
+
+.customer-container:hover {
+  background-color: #e4e4e4;
+}
+
+.customer-name {
+  width: 50%;
+  text-align: center;
+}
+
+.customer-debt {
+  height: 25px;
+  width: 50%;
+  text-align: center;
+}
+
+.customer-debt-value {
+  position: relative;
+  height: 100%;
+  display: flex;
+  width: 40px;
+  margin: auto;
+  justify-content: center;
+}
+
+.customer-debt-price {
+  position: absolute;
+}
+
+.customer-debt-label {
+  position: absolute;
+  bottom: -3px;
+  font-size: 11px;
+  color: gray;
+}
+
+.payment-modal-pay-debt {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 45px 0px 40px 15px;
+}
+
+.payment-modal-pay-order-total {
+  text-align: center;
+  position: relative;
+  width: 55px;
+}
+
+.payment-modal-pay-order-total-title {
+  font-size: 28px;
+}
+
+.payment-modal-pay-order-total-subtitle {
+  position: absolute;
+  font-size: 12px;
+  width: 64px;
+  top: 29px;
+  right: -4px;
+  color: gray;
+}
+
+.payment-modal-pay-buttons {
+  text-align: center;
+  width: 30%;
+}
+
+.payment-modal-pay-button {
+  font-size: 13px;
+  height: 30px;
+  width: 80px;
+  background-color: #0f3447;
+  border-radius: 15px;
+  margin-top: 5px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.payment-modal-pay-container-input {
+  position: relative;
+  width: 30%;
+  min-height: 68px;
+}
+
+.payment-modal-pay-input {
+  height: 15px;
+  width: 90%;
+  border: none;
+  padding-bottom: 3px;
+  font-size: 17px;
+  border-bottom: 1px solid black;
+  outline: none;
+  position: absolute;
+  bottom: 10px;
+}
+
 @media screen and (min-width: 300px) and (max-width: 1000px) {
   .admin-dashboard-container {
     width: 100%;
@@ -351,111 +457,5 @@
     align-items: center;
     padding: 45px 0px 40px 15px;
     border-bottom: 1px solid black;
-  }
-
-  .payment-modal-pay-debt {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 45px 0px 40px 15px;
-  }
-
-  .payment-modal-pay-order-total {
-    text-align: center;
-    position: relative;
-    width: 25%;
-  }
-
-  .payment-modal-pay-order-total-title {
-    font-size: 28px;
-  }
-
-  .payment-modal-pay-order-total-subtitle {
-    position: absolute;
-    font-size: 12px;
-    width: 64px;
-    top: 29px;
-    right: 14px;
-    color: gray;
-  }
-
-  .payment-modal-pay-buttons {
-    text-align: center;
-    width: 30%;
-  }
-
-  .payment-modal-pay-button {
-    font-size: 13px;
-    height: 30px;
-    width: 80px;
-    background-color: #0f3447;
-    border-radius: 15px;
-    margin-top: 5px;
-    color: white;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .payment-modal-pay-container-input {
-    position: relative;
-    width: 30%;
-    min-height: 68px;
-  }
-
-  .payment-modal-pay-input {
-    height: 15px;
-    width: 90%;
-    border: none;
-    padding-bottom: 3px;
-    font-size: 17px;
-    border-bottom: 1px solid black;
-    outline: none;
-    position: absolute;
-    bottom: 10px;
-  }
-
-  .customer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 55px;
-    cursor: pointer;
-    border-bottom: 1px solid gray;
-  }
-
-  .customer-container:hover {
-    background-color: #e4e4e4;
-  }
-
-  .customer-name {
-    width: 50%;
-    text-align: center;
-  }
-
-  .customer-debt {
-    height: 25px;
-    width: 50%;
-    text-align: center;
-  }
-
-  .customer-debt-value {
-    position: relative;
-    height: 100%;
-    display: flex;
-    width: 40px;
-    margin: auto;
-    justify-content: center;
-    
-  }
-
-  .customer-debt-price {
-    position: absolute;
-  }
-
-  .customer-debt-label {
-    position: absolute;
-    bottom: -3px;
-    font-size: 11px;
-    color: gray;
   }
 }
