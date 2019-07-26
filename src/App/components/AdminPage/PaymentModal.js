@@ -14,6 +14,7 @@ const PaymentModal = ({
   orderTotal,
   handleTransferToDebt,
   handlePayOrder,
+  username,
   isPaid,
 }) => {
   if (isPaying) {
@@ -21,7 +22,9 @@ const PaymentModal = ({
       <div className="dashboard-modal-container">
         <div className="dashboard-modal-content">
           <div className="dashboard-modal-header">
-            <div className="dashboard-modal-header-text">Payment</div>
+            <div className="dashboard-modal-header-text">
+              Payment for {username}
+            </div>
             <div
               className="dashboard-modal-header-close"
               onClick={handlePaymentModalClose}

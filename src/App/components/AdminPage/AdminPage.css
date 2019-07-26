@@ -291,7 +291,7 @@
   background-color: #e4e4e4;
 }
 
-.admin-page-footer-customers:hover{
+.admin-page-footer-customers:hover {
   background-color: #e4e4e4;
 }
 
@@ -411,5 +411,50 @@
     outline: none;
     position: absolute;
     bottom: 10px;
+  }
+
+  .customer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+  }
+
+  .customer-container:hover {
+    background-color: #e4e4e4;
+  }
+
+  .customer-name {
+    width: 50%;
+    text-align: center;
+  }
+
+  .customer-debt {
+    height: 25px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .customer-debt-value {
+    position: relative;
+    height: 100%;
+    display: flex;
+    width: 40px;
+    margin: auto;
+    justify-content: center;
+    
+  }
+
+  .customer-debt-price {
+    position: absolute;
+  }
+
+  .customer-debt-label {
+    position: absolute;
+    bottom: -3px;
+    font-size: 11px;
+    color: gray;
   }
 }
