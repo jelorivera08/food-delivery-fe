@@ -4,10 +4,10 @@ const UserProfile = ({ showMenuWhenMobile, menu }) => {
   return (
     <div
       className={
-        showMenuWhenMobile ? 'dashboard-modal-container' : 'menu-container'
+        showMenuWhenMobile ? 'user-profile-container' : 'menu-container'
       }
     >
-      <div className={showMenuWhenMobile ? 'dashboard-modal-content' : 'menu'}>
+      <div className={showMenuWhenMobile ? 'user-profile' : 'menu'}>
         <div className="menu-header">
           <span className="menu-header-text">{`Today's menu. 😋`}</span>
         </div>

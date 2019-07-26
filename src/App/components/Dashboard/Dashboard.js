@@ -53,15 +53,21 @@ const Dashboard = ({
     <div className="dashboard">
       <Header logout={logout} />
       <div className="dashboard-body">
-        <UserProfile
-          setIsOrdering={setIsOrdering}
-          userOrderDetails={userOrderDetails}
-          username={username}
-          getOrders={getOrders}
-          debt={debt}
-          deleteOrder={handleDeleteOrder}
-        />
-        <Menu showMenuWhenMobile={showMenuWhenMobile} menu={menu} />
+        {showMenuWhenMobile ? (
+          <Menu showMenuWhenMobile={showMenuWhenMobile} menu={menu} />
+        ) : (
+          <React.Fragment>
+            <UserProfile
+              setIsOrdering={setIsOrdering}
+              userOrderDetails={userOrderDetails}
+              username={username}
+              getOrders={getOrders}
+              debt={debt}
+              deleteOrder={handleDeleteOrder}
+            />
+            <Menu showMenuWhenMobile={showMenuWhenMobile} menu={menu} />
+          </React.Fragment>
+        )}
       </div>
       <Footer
         showMenuWhenMobile={showMenuWhenMobile}
