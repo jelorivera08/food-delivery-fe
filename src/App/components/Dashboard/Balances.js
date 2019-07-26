@@ -9,6 +9,13 @@ const Balances = ({ setIsOrdering, debt, userOrderDetails }) => {
     });
 
     total += debt;
+
+    if (userOrderDetails.isPaid) {
+      console.log(total);
+      total = total - userOrderDetails.orderTotal;
+      console.log(total);
+    }
+
     return total;
   };
 
