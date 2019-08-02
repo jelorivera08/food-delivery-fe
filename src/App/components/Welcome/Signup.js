@@ -6,6 +6,7 @@ const Login = ({
   handleUsernameChange,
   handlePasswordChange,
   credentials,
+  handleMobileNumberChange,
   handleLoginClick,
   handleSignupClick,
 }) => {
@@ -32,11 +33,20 @@ const Login = ({
             className="welcome-right-input"
             onKeyDown={handleKeyDown}
           />
+
           <input
             value={credentials.password}
             onChange={handlePasswordChange}
             placeholder="Password"
             type="password"
+            className="welcome-right-input"
+            onKeyDown={handleKeyDown}
+          />
+
+          <input
+            value={credentials.mobileNumber}
+            onChange={handleMobileNumberChange}
+            placeholder="Mobile Number (639...)"
             className="welcome-right-input"
             onKeyDown={handleKeyDown}
           />

@@ -9,14 +9,20 @@ const Welcome = ({
   login,
   snackbar,
   closeSnackbar,
+  generateOTP,
   signup,
   invalidCredentials,
+  otpId,
+  validateOtp,
 }) => {
   return (
     <div className="welcome">
       <WelcomeRight
         login={login}
         signup={signup}
+        otpId={otpId}
+        generateOTP={generateOTP}
+        validateOtp={validateOtp}
         invalidCredentials={invalidCredentials}
       />
 
@@ -27,6 +33,7 @@ const Welcome = ({
 
 const mapStateToProps = (state) => ({
   snackbar: state.login.snackbar,
+  otpId: state.login.otp.otpId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -34,6 +41,10 @@ const mapDispatchToProps = (dispatch) => ({
   signup: (credentials) => dispatch(loginActions.signup(credentials)),
   invalidCredentials: () => dispatch(loginActions.invalidCredentials()),
   closeSnackbar: () => dispatch(loginActions.closeSnackbar()),
+  generateOTP: (mobileNUmber) =>
+    dispatch(loginActions.generateOTP(mobileNUmber)),
+  validateOtp: (otpFromUser, otpId, credentials) =>
+    dispatch(loginActions.validateOtp(otpFromUser, otpId, credentials)),
 });
 
 export default connect(

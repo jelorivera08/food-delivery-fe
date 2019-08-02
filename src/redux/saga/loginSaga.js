@@ -25,9 +25,33 @@ function* signup(action) {
   }
 }
 
+function* generateOTP(action) {
+  try {
+    let res = yield api.generateOTP(action.mobileNumber);
+
+    yield put(loginActions.saveGeneratedOTP(res.data));
+  } catch (err) {
+    yield put(loginActions.generaetOTPFailure());
+  }
+}
+
+function* validateOtp(action) {
+  try {
+    yield api.validateOtp(action.otpFromUser, action.otpId);
+
+    let loginRes = yield api.signup(action.credentials);
+    yield put(loginActions.signupSuccess(loginRes.data));
+    yield put(loginActions.login(action.credentials));
+  } catch (err) {
+    yield put(loginActions.invalidOtp());
+  }
+}
+
 function* watchLogin() {
   yield takeEvery(loginConstants.LOGIN, login);
   yield takeEvery(loginConstants.SIGNUP, signup);
+  yield takeEvery(loginConstants.GENERATE_OTP, generateOTP);
+  yield takeEvery(loginConstants.VALIDATE_OTP, validateOtp);
 }
 
 export default function* loginSaga() {

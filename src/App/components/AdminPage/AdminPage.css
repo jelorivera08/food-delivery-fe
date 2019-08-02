@@ -35,7 +35,7 @@
 
 .all-orders-container {
   overflow: auto;
-  height: calc(100% - 104px);
+  height: calc(100% - 119px);
 }
 
 .order-from {
@@ -50,7 +50,7 @@
 }
 
 .orders-price {
-  width: 40%;
+  width: 200px;
   height: 40px;
   position: relative;
 }
@@ -63,7 +63,7 @@
   position: absolute;
   bottom: 6px;
   font-size: 11px;
-  left: 17px;
+  left: 36px;
   color: gray;
 }
 
@@ -71,13 +71,14 @@
   position: absolute;
   font-size: 20px;
   width: 56px;
+  left: 21px;
   text-align: center;
 }
 
 .orders-price-label-price {
   position: absolute;
   bottom: 6px;
-  right: 96px;
+  right: 62px;
   font-size: 11px;
   color: gray;
 }
@@ -87,7 +88,7 @@
   font-size: 20px;
   text-align: center;
   width: 56px;
-  right: 81px;
+  right: 46px;
 }
 
 .dashboard-modal-container {
@@ -457,5 +458,10 @@
     align-items: center;
     padding: 45px 0px 40px 15px;
     border-bottom: 1px solid black;
+  }
+
+  .all-orders-container {
+    overflow: auto;
+    height: calc(100% - 104px);
   }
 }

@@ -85,9 +85,53 @@
   outline: none;
 }
 
+.modal-mobile-number-otp-container {
+  padding: 20px;
+  height: 80%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-mobile-number-otp {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 32%;
+  margin-top: 120px;
+  text-align: center;
+  min-width: 200px;
+  outline: none;
+  font-size: 30px;
+}
+
+.modal-button-container {
+  bottom: 15px;
+  right: 35px;
+  width: 300px;
+  position: absolute;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.modal-button {
+  background-color: #0f3447;
+  color: #fff;
+  border: 1px solid black;
+  width: 140px;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Rubik;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 300px) and (max-width: 1000px) {
   .welcome-right-content {
-    height: 300px;
+    height: 350px;
     width: 100%;
     border: 1px solid #fff;
     border-radius: unset;
@@ -119,7 +163,6 @@
     cursor: pointer;
     outline: none;
   }
- 
 
   .welcome-right-bottom-text {
     color: #fff;
@@ -137,4 +180,3 @@
     height: 80px;
   }
 }
-

@@ -10,6 +10,7 @@ const CustomerList = ({ users, handleUserClick }) => {
   return sortedUsers.map((sortedUser) => {
     return (
       <div
+        key={sortedUser.username}
         className="customer-container"
         onClick={handleUserClick(sortedUser.username, sortedUser.debt)}
       >

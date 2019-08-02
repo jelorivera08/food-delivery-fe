@@ -101,6 +101,23 @@ class api {
 
     return res;
   }
+
+  generateOTP(mobileNumber) {
+    let res = axios.post(`${this.url}/otp/generate`, {
+      mobileNumber,
+    });
+
+    return res;
+  }
+
+  validateOtp(otpFromUser, otpId) {
+    let res = axios.post(`${this.url}/otp/validate`, {
+      otpFromUser,
+      otpId,
+    });
+
+    return res;
+  }
 }
 
 const apiInstance = new api(URL);

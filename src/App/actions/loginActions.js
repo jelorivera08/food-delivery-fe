@@ -58,3 +58,38 @@ export function invalidCredentials() {
     type: loginConstants.INVALID_CREDENTIALS,
   };
 }
+
+export function generateOTP(mobileNumber) {
+  return {
+    type: loginConstants.GENERATE_OTP,
+    mobileNumber,
+  };
+}
+
+export function saveGeneratedOTP(payload) {
+  return {
+    type: loginConstants.SAVE_GENERATED_OTP,
+    otpId: payload.otpId,
+  };
+}
+
+export function validateOtp(otpFromUser, otpId, credentials) {
+  return {
+    type: loginConstants.VALIDATE_OTP,
+    otpFromUser,
+    otpId,
+    credentials,
+  };
+}
+
+export function invalidOtp() {
+  return {
+    type: loginConstants.INVALID_OTP,
+  };
+}
+
+export function generaetOTPFailure() {
+  return {
+    type: loginConstants.GENERATE_OTP_FAILURE,
+  };
+}

@@ -7,6 +7,10 @@ const loginReducer = (
       open: false,
       message: '',
     },
+    otp: {
+      otpId: '',
+      otpFromUser: '',
+    },
   },
   action
 ) => {
@@ -60,6 +64,34 @@ const loginReducer = (
           message: 'Username or password should not contain spaces.',
         },
       };
+
+    case loginConstants.SAVE_GENERATED_OTP:
+      return {
+        ...state,
+        otp: {
+          ...state.otp,
+          otpId: action.otpId,
+        },
+      };
+    case loginConstants.INVALID_OTP:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'You have entered an invalid OTP.',
+        },
+      };
+    case loginConstants.GENERATE_OTP_FAILURE:
+      return {
+        ...state,
+        snackbar: {
+          ...state.snackbar,
+          open: true,
+          message: 'Unable to generate OTP.',
+        },
+      };
+
     default:
       return state;
   }
