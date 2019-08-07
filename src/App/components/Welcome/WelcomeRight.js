@@ -11,7 +11,7 @@ const WelcomeRight = ({
   otpId,
   validateOtp,
 }) => {
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   const [
     showMobileNumberConfirmation,
     setShowMobileNumberConfirmation,
